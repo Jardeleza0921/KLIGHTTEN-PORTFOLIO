@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en" data-theme="neon-arcade">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#070812" />
+    <meta name="description" content="Manage the Klightten work library from your browser." />
+    <title>Klightten Library Manager</title>
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="assets/portfolio.css" />
+  </head>
+  <body>
+    <div class="manager-page">
+      <header class="manager-header">
+        <a class="brand" href="index.html" aria-label="Return to Klightten portfolio">
+          <span class="brand-mark">K</span><span>Klightten Library</span>
+        </a>
+        <div class="header-actions">
+          <a class="button button-secondary button-small" href="index.html">View portfolio</a>
+          <label class="theme-control">
+            <span>Theme</span>
+            <select data-theme-select aria-label="Choose a Klightten theme">
+              <option value="neon-arcade">Neon Arcade</option>
+              <option value="classic-green">Classic Green</option>
+              <option value="black-white">Black &amp; White</option>
+              <option value="red-hat">Red Hat</option>
+            </select>
+          </label>
+        </div>
+      </header>
+
+      <main class="manager-main">
+        <section class="manager-hero">
+          <div>
+            <p class="manager-kicker">Klightten / Work Library Manager</p>
+            <h1>Keep the portfolio growing.</h1>
+            <p>Add projects, revise their status, reorder the collection, create backups, and export the file used by the public portfolio.</p>
+          </div>
+          <span class="draft-state" data-manager-state>Using published data</span>
+        </section>
+
+        <section class="manager-stats" aria-label="Library manager statistics">
+          <div class="manager-stat"><strong data-manager-total>0</strong><span>Total works</span></div>
+          <div class="manager-stat"><strong data-manager-categories>0</strong><span>Categories</span></div>
+          <div class="manager-stat"><strong data-manager-featured>0</strong><span>Featured works</span></div>
+        </section>
+
+        <section aria-labelledby="manage-works-heading">
+          <h2 class="sr-only" id="manage-works-heading">Manage portfolio works</h2>
+          <div class="manager-toolbar">
+            <input class="manager-search" data-manager-search type="search" placeholder="Search the library…" aria-label="Search the managed project library" />
+            <div class="manager-actions">
+              <button class="button button-primary button-small" type="button" data-add-work>+ Add work</button>
+              <button class="button button-secondary button-small" type="button" data-export-js>Export data file</button>
+              <button class="button button-secondary button-small" type="button" data-export-json>JSON backup</button>
+              <label class="button button-secondary button-small file-button">Import<input data-import-file type="file" accept=".json,.js,application/json,text/javascript" /></label>
+              <button class="button button-danger button-small" type="button" data-reset-data>Reset</button>
+            </div>
+          </div>
+
+          <div class="manager-note">
+            <strong>LOCAL DRAFT</strong>
+            <span>Edits are saved only in this browser, so visitors cannot change your public portfolio. When you are ready to publish, export <b>portfolio-data.js</b>, replace the matching file in your website folder, and upload the updated folder.</span>
+          </div>
+
+          <div class="manager-list" data-manager-list></div>
+        </section>
+
+        <section class="publish-guide" aria-labelledby="publish-guide-title">
+          <p class="section-label">Safe publishing workflow</p>
+          <h2 id="publish-guide-title">From local draft to public update.</h2>
+          <div class="publish-steps">
+            <article class="publish-step"><span>01 / EDIT</span><h3>Manage the library</h3><p>Add, revise, duplicate, delete, feature, or reorder your works. The draft remains on your device.</p></article>
+            <article class="publish-step"><span>02 / EXPORT</span><h3>Download the data file</h3><p>Select “Export data file” and replace <b>assets/portfolio-data.js</b> inside this website folder.</p></article>
+            <article class="publish-step"><span>03 / PUBLISH</span><h3>Upload the updated folder</h3><p>Commit it to GitHub Pages or drag the folder into your existing Netlify project to publish the changes.</p></article>
+          </div>
+        </section>
+      </main>
+
+      <dialog class="editor-dialog" data-editor-dialog aria-labelledby="editor-dialog-title">
+        <div class="dialog-shell">
+          <button class="dialog-close" type="button" data-close-editor aria-label="Close project editor">×</button>
+          <form class="editor-form" data-work-form>
+            <input type="hidden" name="originalId" />
+            <div><p class="dialog-eyebrow">Library entry</p><h2 id="editor-dialog-title" data-editor-title>Add new work</h2></div>
+            <div class="form-grid">
+              <div class="form-field"><label for="work-title">Project title *</label><input id="work-title" name="title" required /></div>
+              <div class="form-field"><label for="work-category">Category *</label><input id="work-category" name="category" placeholder="AI &amp; Mobile" required /></div>
+              <div class="form-field"><label for="work-status">Status *</label><input id="work-status" name="status" placeholder="In Development" required /></div>
+              <div class="form-field"><label for="work-year">Year</label><input id="work-year" name="year" inputmode="numeric" /></div>
+              <div class="form-field is-wide"><label for="work-description">Description *</label><textarea id="work-description" name="description" required></textarea></div>
+              <div class="form-field is-wide"><label for="work-tech">Technologies (separated by commas)</label><input id="work-tech" name="tech" placeholder="Python, Linux, APIs" /></div>
+              <div class="form-field"><label for="work-link">Project URL</label><input id="work-link" name="link" type="url" placeholder="https://…" /></div>
+              <div class="form-field"><label for="work-link-label">Link label</label><input id="work-link-label" name="linkLabel" placeholder="Open project" /></div>
+            </div>
+            <label class="checkbox-field"><input name="featured" type="checkbox" /> Feature this work in the library</label>
+            <div class="form-actions">
+              <button class="button button-secondary" type="button" data-close-editor>Cancel</button>
+              <button class="button button-primary" type="submit">Save work</button>
+            </div>
+          </form>
+        </div>
+      </dialog>
+
+      <div class="manager-toast" data-manager-toast hidden role="status" aria-live="polite"></div>
+    </div>
+    <script src="assets/portfolio-data.js"></script>
+    <script src="assets/portfolio-app.js"></script>
+    <script src="assets/portfolio-manager.js"></script>
+  </body>
+</html>

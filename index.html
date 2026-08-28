@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en" data-theme="neon-arcade">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#070812" />
+    <meta name="description" content="The editable work library and living portfolio of Jaru Iori N. Jardeleza." />
+    <title>Klightten — Jaru Iori N. Jardeleza</title>
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="assets/portfolio.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="Klightten portfolio home">
+          <span class="brand-mark">K</span><span>Klightten</span>
+        </a>
+        <div class="header-actions">
+          <nav class="nav-links" aria-label="Main navigation">
+            <a href="#about">About</a><a href="#work">Work Library</a><a href="#journey">Journey</a><a href="manage.html">Manage</a>
+          </nav>
+          <label class="theme-control">
+            <span>Theme</span>
+            <select data-theme-select aria-label="Choose a Klightten theme">
+              <option value="neon-arcade">Neon Arcade</option>
+              <option value="classic-green">Classic Green</option>
+              <option value="black-white">Black &amp; White</option>
+              <option value="red-hat">Red Hat</option>
+            </select>
+          </label>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero" id="top">
+          <div>
+            <div class="eyebrow"><span class="live-dot"></span> Living portfolio · Build log 002</div>
+            <p class="hero-kicker" data-profile-name>Jaru Iori N. Jardeleza</p>
+            <h1>Learning in public.<span>Building with purpose.</span></h1>
+            <p class="hero-intro" data-profile-intro>I turn curiosity into working software—from Linux tools and mobile apps to local AI systems. Klightten is where that progress becomes real.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#work">Explore my work <span aria-hidden="true">↓</span></a>
+              <a class="button button-secondary" href="manage.html">Manage library <span aria-hidden="true">→</span></a>
+              <a class="button button-secondary" href="README.md">Setup guide <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+          <div class="hero-visual" aria-label="Abstract Klightten network artwork and current development status">
+            <img class="hero-art" src="assets/klightten-hero-network.png" alt="" />
+            <div class="visual-grid"></div>
+            <span class="theme-stamp" data-theme-name>Neon Arcade</span>
+            <div class="terminal-card">
+              <div class="terminal-bar"><i></i><i></i><i></i><span>klt/portfolio/status</span></div>
+              <div class="terminal-body">
+                <p><b>$</b> identity</p><p class="terminal-answer" data-profile-role>BSIT_STUDENT · CLOUD_ENGINEER_IN_PROGRESS</p>
+                <p><b>$</b> current_focus</p><p class="terminal-answer" data-profile-focus>KLIGHTTEN_AI</p>
+                <p><b>$</b> library <i class="terminal-cursor"></i></p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="metric-strip" aria-label="Portfolio statistics">
+          <div class="metric"><strong data-stat-total>06</strong><span class="metric-label">Documented works</span></div>
+          <div class="metric"><strong data-stat-categories>06</strong><span class="metric-label">Categories</span></div>
+          <div class="metric"><strong data-stat-active>04</strong><span class="metric-label">Active builds</span></div>
+          <div class="metric"><strong data-stat-released>01</strong><span class="metric-label">Released / live</span></div>
+        </section>
+
+        <section class="section" id="about">
+          <div class="about-grid">
+            <div>
+              <p class="section-index">01 / ABOUT</p><span class="section-label">The person behind Klightten</span>
+              <h2 class="about-title">I learn best when an idea has to survive the real world.</h2>
+            </div>
+            <div class="about-copy">
+              <p>I’m Jaru, a BSIT student at Pateros Technological College and an aspiring cloud engineer. When software, hardware, or Linux does not work the way I need, I study the problem and try to build a better answer.</p>
+              <p>That habit grew into the KLIGHTTEN ecosystem: experiments in desktop customization, hardware control, media, mobile apps, databases, and artificial intelligence. I care about useful design, understandable systems, and software that respects limited hardware.</p>
+              <div class="principles">
+                <div class="principle"><span>01</span><p>Learn by building</p></div>
+                <div class="principle"><span>02</span><p>Design for real limits</p></div>
+                <div class="principle"><span>03</span><p>Document the progress</p></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="work">
+          <div class="section-heading">
+            <p class="section-index">02 / WORK LIBRARY</p>
+            <div><span class="section-label">Projects, releases, and studies</span><h2>A library designed to keep growing.</h2></div>
+            <p class="section-note">Search every project, filter the collection, and open a card for its full details. New work can be added from the manager.</p>
+          </div>
+          <div class="library-toolbar" aria-label="Filter project library">
+            <div class="field-shell"><label for="work-search">Search</label><input id="work-search" data-work-search type="search" placeholder="AI, Linux, Flutter…" autocomplete="off" /></div>
+            <select data-category-filter aria-label="Filter by category"><option value="all">All categories</option></select>
+            <select data-status-filter aria-label="Filter by status"><option value="all">All statuses</option></select>
+            <div class="result-count" data-result-count>6 works</div>
+          </div>
+          <div class="work-grid" data-work-grid aria-live="polite"><div class="empty-state"><span>LOADING_LIBRARY</span><h3>Preparing the work library…</h3></div></div>
+        </section>
+
+        <section class="section" id="skills">
+          <div class="skills-layout">
+            <div class="skills-copy">
+              <p class="section-index">03 / TOOLKIT</p><span class="section-label">Skills through practice</span>
+              <h2>What I use now—and what I’m learning next.</h2>
+              <p>I describe my skills by how I use them, not by invented percentage bars. This list grows alongside the project library.</p>
+            </div>
+            <div class="skills-grid" data-skills-grid></div>
+          </div>
+        </section>
+
+        <section class="section" id="journey">
+          <div class="section-heading">
+            <p class="section-index">04 / ROADMAP</p>
+            <div><span class="section-label">A portfolio in progress</span><h2>The path from student to cloud engineer.</h2></div>
+            <p class="section-note">The portfolio is intentionally unfinished: each milestone should leave visible proof of learning and work.</p>
+          </div>
+          <div class="journey-list" data-journey-list></div>
+        </section>
+
+        <section class="contact-section" id="contact">
+          <div class="contact-mark">K</div><p class="section-label">Follow the build</p>
+          <h2>Klightten is not finished.<br />That is the point.</h2>
+          <p>This site will change as I learn, ship, and move closer to a cloud engineering career. The source is portable, the work library is editable, and every theme remains part of the KLIGHTTEN identity.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" data-github-link href="https://github.com/Jardeleza0921" target="_blank" rel="noreferrer">Explore my GitHub <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" data-klightten-link href="https://jardeleza0921.github.io/KLIGHTTEN/" target="_blank" rel="noreferrer">Visit Klightten <span aria-hidden="true">↗</span></a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="site-footer__brand"><span class="brand-mark">K</span><div><b>Klightten</b><p>Built by Jaru Iori N. Jardeleza</p></div></div>
+        <p>Updated <span data-updated>August 2026</span> · <span data-draft-state>Published library</span></p>
+        <div class="site-footer__links"><a href="manage.html">Library manager</a><a href="#top">Back to top ↑</a></div>
+      </footer>
+
+      <dialog data-work-dialog aria-labelledby="work-dialog-title">
+        <div class="dialog-shell"><button class="dialog-close" type="button" data-close-dialog aria-label="Close project details">×</button><div data-work-dialog-content><h2 id="work-dialog-title">Project details</h2></div></div>
+      </dialog>
+    </div>
+    <script src="assets/portfolio-data.js"></script>
+    <script src="assets/portfolio-app.js"></script>
+  </body>
+</html>
