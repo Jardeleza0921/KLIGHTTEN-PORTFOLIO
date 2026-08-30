@@ -1,3 +1,4 @@
+.github-publisher [hidden] { display: none !important; }
 .github-publisher {
   margin: 0 0 32px;
   padding: clamp(22px, 4vw, 34px);
