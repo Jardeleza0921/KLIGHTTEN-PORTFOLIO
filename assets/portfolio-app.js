@@ -104,7 +104,7 @@
   }
 
   function renderStats(data) {
-    const works = Array.isArray(data.works) ? data.works : [];
+    const works = (Array.isArray(data.works) ? data.works : []).filter((item) => item.published !== false);
     const categories = new Set(works.map((item) => item.category).filter(Boolean));
     const released = works.filter((item) => /released|complete|live/i.test(item.status || "")).length;
     const active = works.filter((item) => /current|active|development|progress|prototype/i.test(item.status || "")).length;
@@ -143,7 +143,7 @@
   function fillFilters(data) {
     const categorySelect = document.querySelector("[data-category-filter]");
     const statusSelect = document.querySelector("[data-status-filter]");
-    const works = data.works || [];
+    const works = (data.works || []).filter((item) => item.published !== false);
 
     if (categorySelect) {
       const current = filters.category;
@@ -165,6 +165,7 @@
   function visibleWorks(data) {
     const query = filters.search.trim().toLowerCase();
     return (data.works || []).filter((work) => {
+      if (work.published === false) return false;
       const haystack = [work.title, work.category, work.status, work.year, work.description, ...(work.tech || [])].join(" ").toLowerCase();
       const searchMatch = !query || haystack.includes(query);
       const categoryMatch = filters.category === "all" || work.category === filters.category;

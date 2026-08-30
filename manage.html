@@ -4,10 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#070812" />
-    <meta name="description" content="Manage the Klightten work library from your browser." />
+    <meta name="description" content="Manage and publish the Klightten work library from your browser." />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer" />
     <title>Klightten Library Manager</title>
     <link rel="icon" href="assets/favicon.svg" />
     <link rel="stylesheet" href="assets/portfolio.css" />
+    <link rel="stylesheet" href="assets/manager-pro.css" />
   </head>
   <body>
     <div class="manager-page">
@@ -34,7 +37,7 @@
           <div>
             <p class="manager-kicker">Klightten / Work Library Manager</p>
             <h1>Keep the portfolio growing.</h1>
-            <p>Add projects, revise their status, reorder the collection, create backups, and export the file used by the public portfolio.</p>
+            <p>Edit the work library, keep a safe browser draft, and publish the finished update directly to GitHub.</p>
           </div>
           <span class="draft-state" data-manager-state>Using published data</span>
         </section>
@@ -43,6 +46,44 @@
           <div class="manager-stat"><strong data-manager-total>0</strong><span>Total works</span></div>
           <div class="manager-stat"><strong data-manager-categories>0</strong><span>Categories</span></div>
           <div class="manager-stat"><strong data-manager-featured>0</strong><span>Featured works</span></div>
+          <div class="manager-stat"><strong data-manager-published>0</strong><span>Public works</span></div>
+        </section>
+
+        <section class="github-publisher" data-github-publisher data-connected="false" aria-labelledby="github-publisher-title">
+          <div class="publisher-heading">
+            <div>
+              <p class="section-label">GitHub publishing</p>
+              <h2 id="github-publisher-title">Edit here. Publish from here.</h2>
+              <p>Connect a repository-limited token once per browser session, then turn your current draft into a real GitHub commit.</p>
+            </div>
+            <div class="publisher-state" data-github-status>GitHub connection required</div>
+          </div>
+
+          <div class="publisher-grid">
+            <div class="publisher-card">
+              <label for="github-token">Fine-grained GitHub token</label>
+              <div class="connection-line">
+                <input id="github-token" data-github-token type="password" placeholder="github_pat_…" autocomplete="off" spellcheck="false" />
+                <button class="button button-primary button-small" type="button" data-github-connect>Connect GitHub</button>
+                <button class="button button-secondary button-small" type="button" data-github-disconnect hidden>Forget token</button>
+              </div>
+              <p class="publisher-account" data-github-account>Not connected</p>
+              <p class="publisher-help">Create a token with access only to <b>KLIGHTTEN-PORTFOLIO</b> and <b>Contents: Read and write</b>. <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noreferrer">Create fine-grained token ↗</a></p>
+            </div>
+
+            <div class="publisher-card">
+              <div class="publisher-repository"><span>Publishing destination</span><code>Jardeleza0921/KLIGHTTEN-PORTFOLIO · main</code></div>
+              <label for="commit-message">Commit message</label>
+              <input id="commit-message" data-commit-message value="Update portfolio library" maxlength="100" />
+              <div class="publisher-actions">
+                <button class="button button-secondary button-small" type="button" data-github-load disabled>Load published data</button>
+                <button class="button button-primary button-small" type="button" data-github-publish disabled>Publish to GitHub</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="publisher-result" data-publish-result hidden></div>
+          <p class="publisher-security"><strong>Security:</strong> the token is never written into the website files or portfolio data. It stays in this site’s browser session. Use “Forget token” on a shared device.</p>
         </section>
 
         <section aria-labelledby="manage-works-heading">
@@ -59,8 +100,8 @@
           </div>
 
           <div class="manager-note">
-            <strong>LOCAL DRAFT</strong>
-            <span>Edits are saved only in this browser, so visitors cannot change your public portfolio. When you are ready to publish, export <b>portfolio-data.js</b>, replace the matching file in your website folder, and upload the updated folder.</span>
+            <strong>SAFE DRAFT</strong>
+            <span>Edits are saved in this browser first. Use <b>Publish to GitHub</b> above when the library is ready, or keep an offline backup with the export buttons.</span>
           </div>
 
           <div class="manager-list" data-manager-list></div>
@@ -94,6 +135,7 @@
               <div class="form-field"><label for="work-link-label">Link label</label><input id="work-link-label" name="linkLabel" placeholder="Open project" /></div>
             </div>
             <label class="checkbox-field"><input name="featured" type="checkbox" /> Feature this work in the library</label>
+            <label class="checkbox-field"><input name="published" type="checkbox" checked /> Show this work on the public portfolio</label>
             <div class="form-actions">
               <button class="button button-secondary" type="button" data-close-editor>Cancel</button>
               <button class="button button-primary" type="submit">Save work</button>
@@ -107,5 +149,6 @@
     <script src="assets/portfolio-data.js"></script>
     <script src="assets/portfolio-app.js"></script>
     <script src="assets/portfolio-manager.js"></script>
+    <script src="assets/github-publisher.js"></script>
   </body>
 </html>

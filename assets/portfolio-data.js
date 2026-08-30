@@ -1,5 +1,5 @@
 window.KLIGHTTEN_PORTFOLIO = {
-  "version": 2,
+  "version": 3,
   "updated": "August 30, 2026",
   "profile": {
     "name": "Jaru Iori N. Jardeleza",
@@ -11,7 +11,7 @@ window.KLIGHTTEN_PORTFOLIO = {
     "headline": "Learning in public. Building with purpose.",
     "intro": "I build practical systems across cloud infrastructure, Linux, web, mobile, and AI. Klightten is the growing library of what I learn, improve, and release.",
     "github": "https://github.com/Jardeleza0921",
-    "klightten": "https://github.com/Jardeleza0921/KLIGHTTEN-PORTFOLIO"
+    "klightten": "https://jardeleza0921.netlify.app/"
   },
   "skills": [
     {
@@ -152,13 +152,13 @@ window.KLIGHTTEN_PORTFOLIO = {
       "id": "klightten-portfolio",
       "title": "Klightten Portfolio",
       "category": "Web Development",
-      "status": "Live & Editable",
+      "status": "Live · GitHub Published",
       "year": "2026",
       "featured": false,
-      "description": "This responsive portfolio and work library, built with portable HTML, CSS, and JavaScript. It includes search, filters, four Klightten themes, a browser-based project manager, data backups, and GitHub-to-Netlify deployment.",
-      "tech": ["HTML", "CSS", "JavaScript", "GitHub", "Netlify"],
-      "link": "https://github.com/Jardeleza0921/KLIGHTTEN-PORTFOLIO",
-      "linkLabel": "Open source"
+      "description": "A professional, responsive portfolio and growing work library with searchable projects, four Klightten themes, browser-based editing, secure direct-to-GitHub publishing, backups, and automatic deployment.",
+      "tech": ["HTML", "CSS", "JavaScript", "GitHub Pages", "Netlify"],
+      "link": "https://jardeleza0921.netlify.app/",
+      "linkLabel": "Open live portfolio"
     },
     {
       "id": "xfce-dotfiles",

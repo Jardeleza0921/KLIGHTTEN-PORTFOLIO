@@ -1,55 +1,72 @@
 # Klightten Portfolio
 
-An editable, data-driven portfolio and growing library of work built with plain HTML, CSS, and JavaScript. No framework or build command is required.
+The professional, editable work library of **Jaru Iori N. Jardeleza**. It is built with plain HTML, CSS, and JavaScript, so it stays fast, portable, and easy to host on GitHub Pages or Netlify.
 
-## Open it locally
+## Public links
 
-1. Keep every file and the `assets` folder together.
-2. Open `index.html` in a modern browser.
-3. Open `manage.html` to add, edit, duplicate, delete, feature, or reorder works.
+- Live portfolio: https://jardeleza0921.netlify.app/
+- GitHub repository: https://github.com/Jardeleza0921/KLIGHTTEN-PORTFOLIO
+- GitHub Pages (after enabling Pages): https://jardeleza0921.github.io/KLIGHTTEN-PORTFOLIO/
 
-The manager stores your draft in that browser's local storage. It does **not** directly edit the files on your computer, GitHub repository, or hosted site.
+## Edit and publish inside the website
 
-## Publish an edited library
+Open `manage.html` from the hosted site. The manager supports:
 
-1. Make your changes in `manage.html`.
-2. Select **Export data file**.
-3. Replace `assets/portfolio-data.js` with the downloaded file.
-4. Refresh `index.html` and verify the public portfolio.
-5. Upload or commit the complete website folder again.
+- adding, editing, duplicating, deleting, featuring, hiding, and reordering projects;
+- local draft saving and JSON backups;
+- loading the latest published library from GitHub; and
+- publishing the edited library directly to GitHub with a real commit.
 
-Use **JSON backup** before large edits. You can import either a JSON backup or an exported `portfolio-data.js` file into the manager.
+### One-time GitHub token setup
 
-## Customize it directly
+Create a **fine-grained personal access token** at https://github.com/settings/personal-access-tokens/new with these settings:
 
-- Portfolio content and works: `assets/portfolio-data.js`
-- Themes and layout: `assets/portfolio.css`
-- Public library behavior: `assets/portfolio-app.js`
-- Manager behavior: `assets/portfolio-manager.js`
-- Public page structure: `index.html`
-- Manager structure: `manage.html`
+1. Repository access: **Only select repositories** → `KLIGHTTEN-PORTFOLIO`.
+2. Repository permission: **Contents** → **Read and write**.
+3. Choose a reasonable expiration date and generate the token.
+4. Paste it only into the GitHub Publishing panel on `manage.html`.
 
-The included themes are **Neon Arcade** (default), **Classic Green**, **Black & White**, and **Red Hat**. The selected theme is remembered in the browser.
+The token is never included in this repository or in exported portfolio data. The manager keeps it in browser `sessionStorage`, which is scoped to the current site and browser tab session. Use **Forget token** when editing on a shared device.
 
 ## GitHub Pages
 
-1. Create a GitHub repository and place the contents of this folder at the publishing root. `index.html` must remain at the root.
-2. Commit and push the files to your default branch.
-3. In the repository, open **Settings → Pages** and choose the branch and root folder as the publishing source.
-4. Save and wait for GitHub to show the public URL.
+1. Open the repository on GitHub.
+2. Go to **Settings → Pages**.
+3. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
+4. Select the `main` branch and `/ (root)` folder, then save.
 
-The included `.nojekyll` file tells GitHub Pages to serve the project as plain static files.
+Every library update published from `manage.html` commits `assets/portfolio-data.js`. GitHub Pages redeploys the branch automatically. Because the Netlify site is connected to the same repository, Netlify can redeploy from the same update as well.
 
-Official guide: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site
+## Open locally
 
-## Netlify
+From the repository folder:
 
-1. Sign in and open https://app.netlify.com/drop.
-2. Drag this folder or its ZIP file into Netlify Drop.
-3. For updates, replace `assets/portfolio-data.js` after exporting, then drag the updated folder into the site's deploy area.
+```bash
+python3 -m http.server 8000
+```
 
-Official guide: https://docs.netlify.com/start/quickstarts/netlify-drop-quickstart/
+Then open:
 
-## Important limitation
+- Portfolio: http://127.0.0.1:8000/
+- Manager: http://127.0.0.1:8000/manage.html
 
-This is a static site. The manager is intentionally local and has no account system or shared database. That keeps public visitors from changing your hosted library, but publishing still requires replacing the exported data file and redeploying the site.
+The direct GitHub publisher requires internet access. Local project editing and data export continue to work offline.
+
+## Main files
+
+- `index.html` — public portfolio
+- `manage.html` — private editing workspace
+- `assets/portfolio-data.js` — published portfolio content
+- `assets/portfolio-app.js` — themes, filters, project rendering, and local draft storage
+- `assets/portfolio-manager.js` — project editor
+- `assets/github-publisher.js` — direct GitHub loading and publishing
+- `assets/portfolio.css` — public and manager design system
+- `assets/manager-pro.css` — publishing workspace styles
+
+## Security notes
+
+- Never write a GitHub token into an HTML or JavaScript file.
+- Use a fine-grained token restricted to this repository only.
+- Give it only **Contents: Read and write** permission.
+- Revoke the token immediately from GitHub settings if it is ever exposed.
+- The manager page includes `noindex` metadata, but its real protection is the repository-limited token—not secrecy of the URL.

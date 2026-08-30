@@ -54,9 +54,12 @@
       const works = data.works || [];
       const categories = new Set(works.map((item) => item.category).filter(Boolean));
       const featured = works.filter((item) => item.featured).length;
+      const published = works.filter((item) => item.published !== false).length;
       $("[data-manager-total]").textContent = works.length;
       $("[data-manager-categories]").textContent = categories.size;
       $("[data-manager-featured]").textContent = featured;
+      const publishedNode = $("[data-manager-published]");
+      if (publishedNode) publishedNode.textContent = published;
       const state = $("[data-manager-state]");
       state.textContent = store.hasDraft() ? "Local draft active" : "Using published data";
       state.dataset.active = store.hasDraft() ? "true" : "false";
@@ -79,10 +82,10 @@
       list.innerHTML = visible.map((work) => {
         const realIndex = data.works.findIndex((item) => item.id === work.id);
         return `
-          <article class="manager-item" data-manager-item="${store.escapeHTML(work.id)}">
+          <article class="manager-item" data-manager-item="${store.escapeHTML(work.id)}" data-unpublished="${work.published === false}">
             <div class="manager-item__order">${String(realIndex + 1).padStart(2, "0")}</div>
             <div class="manager-item__main">
-              <div><h3>${store.escapeHTML(work.title)}</h3>${work.featured ? `<span class="featured-label">Featured</span>` : ""}</div>
+              <div><h3>${store.escapeHTML(work.title)}</h3>${work.featured ? `<span class="featured-label">Featured</span>` : ""}${work.published === false ? `<span class="featured-label unpublished-label">Hidden</span>` : ""}</div>
               <p>${store.escapeHTML(work.category)} · ${store.escapeHTML(work.status)} · ${store.escapeHTML(work.year)}</p>
               <div class="tag-list">${(work.tech || []).map((item) => `<span>${store.escapeHTML(item)}</span>`).join("")}</div>
             </div>
@@ -113,6 +116,7 @@
         status: "In Development",
         year: String(new Date().getFullYear()),
         featured: false,
+        published: true,
         description: "",
         tech: [],
         link: "",
@@ -129,6 +133,7 @@
       setFormValue("link", item.link);
       setFormValue("linkLabel", item.linkLabel);
       setFormValue("featured", item.featured);
+      setFormValue("published", item.published !== false);
       $("[data-editor-title]").textContent = work ? "Edit work" : "Add new work";
       if (typeof dialog.showModal === "function") dialog.showModal();
       else dialog.setAttribute("open", "");
@@ -153,6 +158,7 @@
           status: String(values.get("status") || "In Development").trim(),
           year: String(values.get("year") || new Date().getFullYear()).trim(),
           featured: values.get("featured") === "on",
+          published: values.get("published") === "on",
           description: String(values.get("description") || "").trim(),
           tech: String(values.get("tech") || "").split(",").map((item) => item.trim()).filter(Boolean),
           link: String(values.get("link") || "").trim(),
