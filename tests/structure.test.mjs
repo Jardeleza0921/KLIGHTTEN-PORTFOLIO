@@ -13,25 +13,42 @@ async function files(root) {
   return output;
 }
 
-test('the Pages folder contains public files but no admin or secrets', async () => {
-  const publicFiles = await files('docs');
-  assert.ok(publicFiles.includes(path.join('docs', 'index.html')));
-  assert.ok(publicFiles.includes(path.join('docs', 'assets', 'data', 'portfolio.json')));
+test('Pages contains only website files and a GitHub editor shortcut', async () => {
+  const names = await files('docs');
+  await access('docs/.nojekyll');
+  await access('docs/assets/data/portfolio.json');
+  assert.deepEqual(
+    names.filter((name) => name.includes(path.join('docs', 'admin'))),
+    [path.join('docs', 'admin', 'index.html')]
+  );
   assert.equal(
-    publicFiles.some((name) => /admin|manage|backup|\.env/i.test(name)),
+    names.some((name) => /backup|\.env|secret|config\.js/i.test(name)),
     false
   );
-  const contents = (
+  const text = (
     await Promise.all(
-      publicFiles
-        .filter((name) => /\.(?:html|css|js|json|svg)$/.test(name))
+      names
+        .filter((name) => /\.(html|css|js|json|svg)$/.test(name))
         .map((name) => readFile(name, 'utf8'))
     )
   ).join('\n');
-  assert.doesNotMatch(contents, /github_pat_|KLIGHTTEN_ADMIN_PASSWORD|KLIGHTTEN_ADMIN_USERNAME/);
+  assert.doesNotMatch(
+    text,
+    /github_pat_|client_secret|KLIGHTTEN_ADMIN_PASSWORD|KLIGHTTEN_ADMIN_USERNAME/
+  );
 });
 
-test('public HTML references local assets and never links the admin', async () => {
+test('GitHub shortcut collects no credentials and contains no publishing JavaScript', async () => {
+  const html = await readFile('docs/admin/index.html', 'utf8');
+  assert.match(
+    html,
+    /https:\/\/github\.com\/Jardeleza0921\/KLIGHTTEN-PORTFOLIO\/edit\/main\/docs\/assets\/data\/portfolio\.json/
+  );
+  assert.match(html, /Edit on GitHub/);
+  assert.doesNotMatch(html, /<script|<form|<input|oauth|access.token/i);
+});
+
+test('public pages retain their existing shared assets and clean navigation', async () => {
   for (const name of ['index.html', 'work.html', 'about.html']) {
     const html = await readFile(path.join('docs', name), 'utf8');
     assert.match(html, /assets\/css\/theme\.css/);
@@ -41,11 +58,28 @@ test('public HTML references local assets and never links the admin', async () =
   }
 });
 
-test('old Netlify and public manager entry points are removed', async () => {
-  await assert.rejects(() => access('netlify.toml'));
-  await assert.rejects(() => access('manage.html'));
-  await assert.rejects(() => access('assets/portfolio-app.js'));
-  await assert.rejects(() => access('assets/portfolio-manager.js'));
-  await access('admin/index.html');
-  await access('docs/.nojekyll');
+test('internal source, guides and obsolete hosting files are absent', async () => {
+  for (const name of [
+    'admin',
+    'guides',
+    'README_ADMIN_PRIVATE.md',
+    'netlify.toml',
+    'netlify',
+    'manage.html',
+    'assets/portfolio-manager.js',
+  ])
+    await assert.rejects(() => access(name));
+});
+
+test('public README is visitor-facing', async () => {
+  const readme = await readFile('README.md', 'utf8');
+  assert.match(readme, /^# KLIGHTTEN Portfolio/);
+  assert.doesNotMatch(readme, /oauth|token|admin|\.env|client.secret|publish.*procedure/i);
+});
+
+test('public README file references exist', async () => {
+  const readme = await readFile('README.md', 'utf8');
+  for (const match of readme.matchAll(/`(docs\/[^\x60]+|tests\/)`/g)) {
+    await access(match[1]);
+  }
 });

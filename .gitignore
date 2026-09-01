@@ -1,10 +1,28 @@
-# Keep private workspace exports and credentials out of Git.
-klightten-workspace-backup*.json
-private-backups/
-.env
-.env.*
-!.env.example
+# Local dependencies and operating-system files
 node_modules/
 .DS_Store
 Thumbs.db
 *.log
+
+# Credentials: never commit even an example containing real values
+.env
+.env.*
+.dev.vars
+.dev.vars.*
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+service-account*.json
+
+# Local drafts and internal documents belong outside this public repository
+klightten-workspace-backup*.json
+private-backups/
+README_ADMIN_PRIVATE.md
+README_ADMIN_PRIVATE.*
+*_PRIVATE.md
+*-PRIVATE.zip
+internal/
+private/
+KLIGHTTEN-PORTFOLIO-ADMIN/
