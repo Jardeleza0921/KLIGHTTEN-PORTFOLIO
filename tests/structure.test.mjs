@@ -13,16 +13,14 @@ async function files(root) {
   return output;
 }
 
-test('Pages contains only website files and a GitHub editor shortcut', async () => {
+test('Pages contains the website and online editor without private setup files', async () => {
   const names = await files('docs');
   await access('docs/.nojekyll');
   await access('docs/assets/data/portfolio.json');
-  assert.deepEqual(
-    names.filter((name) => name.includes(path.join('docs', 'admin'))),
-    [path.join('docs', 'admin', 'index.html')]
-  );
+  await access('docs/admin/assets/js/auth.js');
+  await access('docs/admin/assets/js/cloud.js');
   assert.equal(
-    names.some((name) => /backup|\.env|secret|config\.js/i.test(name)),
+    names.some((name) => /backup|\.env|secret|PRIVATE|database\.rules/i.test(name)),
     false
   );
   const text = (
@@ -38,14 +36,24 @@ test('Pages contains only website files and a GitHub editor shortcut', async () 
   );
 });
 
-test('GitHub shortcut collects no credentials and contains no publishing JavaScript', async () => {
+test('online editor starts locked, has no inline code, and uses a separate Firebase app', async () => {
   const html = await readFile('docs/admin/index.html', 'utf8');
-  assert.match(
-    html,
-    /https:\/\/github\.com\/Jardeleza0921\/KLIGHTTEN-PORTFOLIO\/edit\/main\/docs\/assets\/data\/portfolio\.json/
+  assert.match(html, /data-admin-shell hidden/);
+  assert.match(html, /data-login-form/);
+  assert.match(html, /type="password"/);
+  assert.doesNotMatch(html, /\son\w+=|<style\b|unsafe-inline/i);
+  const auth = await readFile('docs/admin/assets/js/auth.js', 'utf8');
+  assert.match(auth, /inMemoryPersistence/);
+  assert.match(auth, /initializeApp\(firebaseConfig, APP_NAME\)/);
+  assert.match(auth, /signInWithEmailAndPassword/);
+  assert.doesNotMatch(
+    auth,
+    /createUserWithEmailAndPassword|localStorage|sessionStorage|firebase-firestore|firebase-storage/
   );
-  assert.match(html, /Edit on GitHub/);
-  assert.doesNotMatch(html, /<script|<form|<input|oauth|access.token/i);
+  const editor = await readFile('docs/admin/assets/js/editor.js', 'utf8');
+  assert.doesNotMatch(editor, /localStorage|sessionStorage|storageSet|storageGet/);
+  const config = await readFile('docs/admin/assets/js/firebase-config.js', 'utf8');
+  assert.doesNotMatch(config, /ownerUid|allowedUid|password|private_key|client_secret/i);
 });
 
 test('public pages retain their existing shared assets and clean navigation', async () => {

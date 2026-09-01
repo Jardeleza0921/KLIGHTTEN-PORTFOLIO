@@ -1,4 +1,5 @@
-import { normalize, THEMES } from './model.js';
+import { THEMES } from './model.js';
+import { loadPublished } from './content.js';
 import {
   el,
   anchor,
@@ -18,11 +19,14 @@ const THEME_KEY = 'klightten.public.theme.v4';
 async function start() {
   let data;
   try {
-    const response = await fetch(new URL('../data/portfolio.json', import.meta.url), {
-      cache: 'no-store',
-    });
-    if (!response.ok) throw new Error('Portfolio data could not be loaded.');
-    data = normalize(await response.json());
+    const loaded = await loadPublished();
+    data = loaded.data;
+    if (loaded.source === 'snapshot') {
+      const sourceNote = document.createElement('small');
+      sourceNote.className = 'muted';
+      sourceNote.textContent = 'Showing the repository snapshot.';
+      document.querySelector('footer')?.append(sourceNote);
+    }
   } catch (error) {
     const notice = $('[data-load-notice]');
     notice.hidden = false;

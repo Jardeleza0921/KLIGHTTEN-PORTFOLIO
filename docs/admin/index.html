@@ -7,31 +7,503 @@
     <meta name="referrer" content="no-referrer" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'none'; style-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
+      content="default-src 'self'; script-src 'self' https://www.gstatic.com/firebasejs/12.18.0/; style-src 'self'; img-src 'self' https: http:; connect-src 'self' https://www.gstatic.com/firebasejs/12.18.0/ https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://equallearn-test-default-rtdb.firebaseio.com; object-src 'none'; base-uri 'self'; form-action 'none'"
     />
-    <title>Edit on GitHub — Klightten</title>
+    <title>Klightten — Private workspace</title>
     <link rel="icon" href="../assets/images/favicon.svg" />
     <link rel="stylesheet" href="../assets/css/theme.css" />
     <link rel="stylesheet" href="../assets/css/portfolio.css" />
+    <link rel="stylesheet" href="assets/css/admin.css" />
+    <script type="module" src="assets/js/auth.js"></script>
   </head>
   <body>
-    <main class="container page-heading">
-      <p class="eyebrow">Klightten / Repository editor</p>
-      <h1>Edit on GitHub.</h1>
-      <p class="reading-copy">
-        Continue to GitHub to edit the portfolio content. GitHub will ask you to sign in if needed.
-        Changes to this repository require write access.
-      </p>
-      <p class="muted">This page is a public shortcut, not a dashboard or a sign-in form.</p>
-      <div class="button-row">
-        <a
-          class="button"
-          href="https://github.com/Jardeleza0921/KLIGHTTEN-PORTFOLIO/edit/main/docs/assets/data/portfolio.json"
-          rel="noreferrer"
-          >Edit on GitHub ↗</a
-        >
-        <a class="button secondary" href="../">Back to portfolio</a>
-      </div>
+    <noscript
+      ><p>
+        Enable JavaScript to sign in. The public portfolio is available at the link below.
+      </p></noscript
+    >
+    <main class="auth-panel" data-login-panel>
+      <section class="auth-card card" aria-labelledby="login-title">
+        <a class="brand" href="../"><span class="brand-mark">K</span><span>Klightten</span></a>
+        <p class="eyebrow">Portfolio workspace</p>
+        <h1 id="login-title">A place to keep building.</h1>
+        <p class="muted">Sign in to manage your work, story, and progress.</p>
+        <form data-login-form>
+          <label class="field"
+            >Email address
+            <input name="email" type="email" autocomplete="username" required maxlength="254" />
+          </label>
+          <label class="field"
+            >Password
+            <input name="password" type="password" autocomplete="current-password" required />
+          </label>
+          <label class="check"><input type="checkbox" data-show-password /> Show password</label>
+          <button class="button" type="submit" data-login-submit disabled>Sign in</button>
+        </form>
+        <p class="auth-message" data-login-message role="status" aria-live="polite">
+          Preparing secure sign-in…
+        </p>
+        <p class="auth-note">
+          Your session ends when you refresh, leave this page, or sign out. Save your private draft
+          before leaving.
+        </p>
+        <a class="button quiet small" href="../">← Back to portfolio</a>
+      </section>
     </main>
+    <div class="admin-shell" data-admin-shell hidden>
+      <aside class="sidebar">
+        <a class="brand" href="#overview"
+          ><span class="brand-mark">K</span><span>Klightten Admin</span></a
+        >
+        <nav class="admin-nav" aria-label="Admin sections">
+          <button type="button" data-section="overview" aria-current="page">
+            <span class="nav-number">01</span><span>Overview</span>
+          </button>
+          <button type="button" data-section="projects">
+            <span class="nav-number">02</span><span>Work library</span>
+          </button>
+          <button type="button" data-section="profile">
+            <span class="nav-number">03</span><span>Profile</span>
+          </button>
+          <button type="button" data-section="learning">
+            <span class="nav-number">04</span><span>Learning</span>
+          </button>
+          <button type="button" data-section="appearance">
+            <span class="nav-number">05</span><span>Appearance</span>
+          </button>
+          <button type="button" data-section="publish">
+            <span class="nav-number">06</span><span>Publish & backup</span>
+          </button>
+        </nav>
+        <p class="sidebar-footer">
+          <span class="local-light"></span>Private workspace<br />Signed-in session · 30-minute idle
+          lock
+        </p>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-header">
+          <div>
+            <p class="eyebrow">Jaru’s workspace</p>
+            <h1 data-section-title>Overview</h1>
+          </div>
+          <div class="admin-status">
+            <span data-save-state>Working copy ready</span>
+            <a class="button small secondary" href="../" target="_blank" rel="noopener noreferrer"
+              >View portfolio ↗</a
+            >
+            <button class="button small secondary" data-preview type="button">
+              Preview draft ↗
+            </button>
+            <button class="button small" data-cloud-save type="button">Save private draft</button>
+            <button class="button small quiet" data-logout type="button">Sign out</button>
+          </div>
+        </header>
+        <main class="admin-content">
+          <section class="admin-panel" data-panel="overview">
+            <header>
+              <div>
+                <p class="eyebrow">01 / Overview</p>
+                <h2>Your portfolio at a glance.</h2>
+              </div>
+            </header>
+            <div class="stats">
+              <div class="stat">
+                <strong data-stat-total>0</strong><span>Workspace projects</span>
+              </div>
+              <div class="stat">
+                <strong data-stat-public>0</strong><span>Public projects</span>
+              </div>
+              <div class="stat">
+                <strong data-stat-featured>0</strong><span>Featured projects</span>
+              </div>
+              <div class="stat"><strong data-stat-groups>0</strong><span>Skill groups</span></div>
+            </div>
+            <div class="card-grid">
+              <article class="card">
+                <h3>Continue the library</h3>
+                <p>
+                  Add a project, adjust its status, or keep it as a private draft until it is ready.
+                </p>
+                <div class="button-row">
+                  <button class="button small" type="button" data-go="projects">
+                    Manage projects
+                  </button>
+                </div>
+              </article>
+              <article class="card">
+                <h3>Publish deliberately</h3>
+                <p>
+                  Apply form changes, save a private draft, then publish when you are ready. Only
+                  projects included for publication appear on the public website.
+                </p>
+                <div class="button-row">
+                  <button class="button small secondary" type="button" data-go="publish">
+                    Open publishing
+                  </button>
+                </div>
+              </article>
+            </div>
+          </section>
+          <section class="admin-panel" data-panel="projects" hidden>
+            <header>
+              <div>
+                <p class="eyebrow">02 / Work library</p>
+                <h2>Projects and progress.</h2>
+              </div>
+              <button class="button small" data-add-project type="button">+ Add project</button>
+            </header>
+            <div class="toolbar">
+              <input
+                type="search"
+                data-project-search
+                placeholder="Search projects…"
+                aria-label="Search projects"
+              /><select data-project-visibility aria-label="Project visibility">
+                <option value="">All visibility</option>
+                <option value="public">Included on next publish</option>
+                <option value="private">Private drafts</option>
+              </select>
+            </div>
+            <div class="project-list" data-project-list></div>
+          </section>
+          <section class="admin-panel" data-panel="profile" hidden>
+            <header>
+              <div>
+                <p class="eyebrow">03 / Profile</p>
+                <h2>Your story and direction.</h2>
+              </div>
+            </header>
+            <form class="card" data-profile-form>
+              <div class="form-grid">
+                <div class="field">
+                  <label>Full name<input name="name" required maxlength="160" /></label>
+                </div>
+                <div class="field">
+                  <label>Short name<input name="shortName" maxlength="60" /></label>
+                </div>
+                <div class="field">
+                  <label>Role<input name="role" maxlength="180" /></label>
+                </div>
+                <div class="field">
+                  <label>Current focus<input name="currentFocus" maxlength="160" /></label>
+                </div>
+                <div class="field">
+                  <label>School<input name="school" maxlength="180" /></label>
+                </div>
+                <div class="field">
+                  <label>Academic stage<input name="stage" maxlength="100" /></label>
+                </div>
+                <div class="field">
+                  <label>Location<input name="location" maxlength="120" /></label>
+                </div>
+                <div class="field">
+                  <label>GitHub profile<input name="github" type="url" /></label>
+                </div>
+                <div class="field wide">
+                  <label>Headline<input name="headline" maxlength="180" /></label>
+                </div>
+                <div class="field wide">
+                  <label
+                    >Short introduction<textarea name="intro" maxlength="1000"></textarea>
+                  </label>
+                </div>
+                <div class="field wide">
+                  <label
+                    >About me<textarea name="about" rows="9" maxlength="6000"></textarea>
+                  </label>
+                </div>
+              </div>
+              <div class="form-footer">
+                <button class="button" type="submit">Apply profile changes</button>
+              </div>
+            </form>
+          </section>
+          <section class="admin-panel" data-panel="learning" hidden>
+            <header>
+              <div>
+                <p class="eyebrow">04 / Learning</p>
+                <h2>Skills and roadmap.</h2>
+              </div>
+            </header>
+            <div class="stack">
+              <div class="card">
+                <div class="section-head">
+                  <h3>Skill groups</h3>
+                  <button class="button small secondary" type="button" data-add-skill>
+                    + Add group
+                  </button>
+                </div>
+                <div class="stack" data-skill-list></div>
+              </div>
+              <div class="card">
+                <div class="section-head">
+                  <h3>Learning roadmap</h3>
+                  <button class="button small secondary" type="button" data-add-journey>
+                    + Add milestone
+                  </button>
+                </div>
+                <div class="stack" data-journey-list></div>
+              </div>
+            </div>
+          </section>
+          <section class="admin-panel" data-panel="appearance" hidden>
+            <header>
+              <div>
+                <p class="eyebrow">05 / Appearance</p>
+                <h2>Public website settings.</h2>
+              </div>
+            </header>
+            <form class="card" data-settings-form>
+              <div class="settings-row">
+                <div>
+                  <h3>Browser title</h3>
+                  <p>The site name shown in a browser tab and search previews.</p>
+                </div>
+                <input name="siteTitle" maxlength="120" aria-label="Browser title" />
+              </div>
+              <div class="settings-row">
+                <div>
+                  <h3>Site description</h3>
+                  <p>A concise summary for page metadata.</p>
+                </div>
+                <textarea
+                  name="description"
+                  maxlength="300"
+                  aria-label="Site description"
+                ></textarea>
+              </div>
+              <div class="settings-row">
+                <div>
+                  <h3>Default color theme</h3>
+                  <p>Visitors can still choose another Klightten theme.</p>
+                </div>
+                <select name="defaultTheme" aria-label="Default color theme"></select>
+              </div>
+              <div class="settings-row">
+                <div>
+                  <h3>Projects per page</h3>
+                  <p>Controls pagination on the public Work page.</p>
+                </div>
+                <select name="projectsPerPage" aria-label="Projects per page">
+                  <option>6</option>
+                  <option>9</option>
+                  <option>12</option>
+                  <option>24</option>
+                </select>
+              </div>
+              <div class="settings-row">
+                <div>
+                  <h3>Interface motion</h3>
+                  <p>Animations still respect the visitor’s reduced-motion setting.</p>
+                </div>
+                <label class="check"
+                  ><input type="checkbox" name="motion" /> Allow subtle motion</label
+                >
+              </div>
+              <div class="form-footer">
+                <button class="button" type="submit">Apply appearance changes</button>
+              </div>
+            </form>
+          </section>
+          <section class="admin-panel" data-panel="publish" hidden>
+            <header>
+              <div>
+                <p class="eyebrow">06 / Publish & backup</p>
+                <h2>Save privately. Publish deliberately.</h2>
+              </div>
+            </header>
+            <div class="stack">
+              <div class="card">
+                <h3>Your cloud working copy</h3>
+                <p>
+                  Apply any open form, then use Save private draft above to keep your edits online.
+                  Drafts are not public. Reload fetches the newest cloud version and replaces this
+                  working copy, so export a backup first if you need it.
+                </p>
+                <div class="button-row">
+                  <button class="button small secondary" data-cloud-reload type="button">
+                    Reload cloud data
+                  </button>
+                </div>
+              </div>
+              <div class="card publish-card">
+                <h3>Publish your portfolio</h3>
+                <p>
+                  Preview the working copy before publishing. Publishing first saves the private
+                  draft, then updates the live portfolio. It does not create a GitHub commit.
+                </p>
+                <div class="button-row">
+                  <button class="button" data-cloud-publish type="button">Publish portfolio</button>
+                  <a class="button quiet small" href="../" target="_blank" rel="noopener noreferrer"
+                    >View live portfolio ↗</a
+                  >
+                </div>
+                <div class="publish-state connection-field" data-publish-state role="status"></div>
+              </div>
+              <div class="card">
+                <h3>Export public content</h3>
+                <p>
+                  Save your forms and review the draft preview. Only projects marked for the public
+                  website are included. A download does not publish anything.
+                </p>
+                <div class="button-row">
+                  <button class="button small" data-export-public type="button">
+                    Export public JSON
+                  </button>
+                </div>
+                <details class="connection-field">
+                  <summary>Review or copy the last export</summary>
+                  <label class="field connection-field"
+                    >Public JSON
+                    <textarea
+                      data-public-json
+                      readonly
+                      rows="12"
+                      spellcheck="false"
+                      placeholder="Export public JSON to prepare this text."
+                    ></textarea>
+                  </label>
+                </details>
+              </div>
+              <div class="card">
+                <h3>Keep a repository snapshot</h3>
+                <p>
+                  The website uses the repository snapshot when cloud content is unavailable. Export
+                  public JSON and commit it on GitHub when you want to update that fallback. Editing
+                  this file does not replace an existing cloud publication.
+                </p>
+                <code class="code-value" data-destination></code>
+                <div class="button-row connection-field">
+                  <a
+                    class="button small"
+                    data-github-editor
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Edit on GitHub ↗</a
+                  >
+                  <a
+                    class="button small quiet"
+                    data-github-current
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >View current snapshot ↗</a
+                  >
+                </div>
+              </div>
+              <details class="card">
+                <summary>Backups and recovery</summary>
+                <p>
+                  Full backups include unpublished projects. Keep them outside the public
+                  repository. This editor does not keep drafts in browser storage: save them to the
+                  private cloud draft or download a full backup before leaving.
+                </p>
+                <div class="button-row">
+                  <button class="button small secondary" data-export type="button">
+                    Download workspace backup
+                  </button>
+                  <label class="button small quiet"
+                    >Import JSON or backup<input
+                      class="sr-only"
+                      data-import
+                      type="file"
+                      accept=".json,.js,application/json"
+                  /></label>
+                  <button class="button small danger" data-reset type="button">
+                    Restore bundled snapshot
+                  </button>
+                </div>
+              </details>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <dialog data-project-dialog aria-labelledby="editor-title">
+      <div class="dialog-bar">
+        <span class="eyebrow">Project editor</span
+        ><button type="button" data-close-project aria-label="Close editor">×</button>
+      </div>
+      <form class="dialog-body" data-project-form>
+        <input type="hidden" name="originalId" />
+        <h2 id="editor-title">Project details</h2>
+        <div class="form-grid">
+          <div class="field">
+            <label>Project title *<input name="title" required maxlength="160" /></label>
+          </div>
+          <div class="field">
+            <label
+              >Project ID *<input name="id" required maxlength="100" pattern="[a-z0-9-]+" /></label
+            ><small>Lowercase letters, numbers, and hyphens.</small>
+          </div>
+          <div class="field">
+            <label>Category<input name="category" maxlength="100" /></label>
+          </div>
+          <div class="field">
+            <label>Status<input name="status" maxlength="100" /></label>
+          </div>
+          <div class="field">
+            <label>Year<input name="year" maxlength="20" /></label>
+          </div>
+          <div class="field">
+            <label>Technologies<input name="tech" placeholder="Linux, Python, GTK" /></label>
+          </div>
+          <div class="field wide">
+            <label>Card summary<input name="summary" maxlength="260" /></label>
+          </div>
+          <div class="field wide">
+            <label
+              >Full description *<textarea
+                name="description"
+                rows="7"
+                required
+                maxlength="12000"
+              ></textarea>
+            </label>
+          </div>
+          <div class="field wide">
+            <label>Your role<input name="role" maxlength="300" /></label>
+          </div>
+          <div class="field">
+            <label>Live URL<input name="liveUrl" type="url" /></label>
+          </div>
+          <div class="field">
+            <label>Repository URL<input name="repoUrl" type="url" /></label>
+          </div>
+          <div class="field">
+            <label>Documentation URL<input name="notesUrl" type="url" /></label>
+          </div>
+          <div class="field">
+            <label>Cover image URL<input name="coverUrl" type="url" /></label>
+          </div>
+          <div class="field wide">
+            <label>Cover image description<input name="coverAlt" maxlength="240" /></label>
+          </div>
+          <label class="check"
+            ><input name="published" type="checkbox" checked /> Include on the public website</label
+          ><label class="check"
+            ><input name="featured" type="checkbox" /> Feature on the Home page</label
+          >
+        </div>
+        <div class="form-footer">
+          <button class="button secondary" data-close-project type="button">Cancel</button
+          ><button class="button" type="submit">Apply project changes</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog class="preview-dialog" data-preview-dialog aria-labelledby="preview-title">
+      <div class="dialog-bar">
+        <span id="preview-title" class="eyebrow">Public draft preview · not published</span
+        ><button type="button" data-close-preview aria-label="Close preview">×</button>
+      </div>
+      <div class="dialog-body" data-preview-content></div>
+    </dialog>
+    <dialog data-detail-dialog aria-labelledby="project-dialog-title">
+      <div class="dialog-bar">
+        <span class="eyebrow">Project preview</span
+        ><button type="button" data-close-detail aria-label="Close project preview">×</button>
+      </div>
+      <div class="dialog-body" data-preview-detail></div>
+    </dialog>
+    <div class="notice" data-notice hidden role="status" aria-live="polite"></div>
   </body>
 </html>

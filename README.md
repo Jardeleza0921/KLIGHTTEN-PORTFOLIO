@@ -16,10 +16,11 @@ My personal portfolio and growing library of cloud, Linux, web, mobile, database
 - Four visual themes: Neon Arcade, Classic Green, Black & White, and Red Hat.
 - Responsive layouts, visible keyboard focus, and reduced-motion support.
 - Structured JSON content, local assets, and no runtime framework or external font dependency.
+- Cloud-published content with a repository snapshot available as a fallback.
 
 ## Technology
 
-HTML5 · CSS3 · JavaScript ES modules · JSON · GitHub Pages
+HTML5 · CSS3 · JavaScript ES modules · JSON · Firebase · GitHub Pages
 
 ## Project structure
 
@@ -31,13 +32,13 @@ HTML5 · CSS3 · JavaScript ES modules · JSON · GitHub Pages
 | `docs/404.html`                   | Missing-page response                        |
 | `docs/assets/css/`                | Themes and responsive layouts                |
 | `docs/assets/js/`                 | Data model, interface helpers, and rendering |
-| `docs/assets/data/portfolio.json` | Public portfolio content                     |
+| `docs/assets/data/portfolio.json` | Repository content snapshot                  |
 | `docs/assets/images/`             | Site artwork and favicon                     |
 | `tests/`                          | Content and project-structure checks         |
 
 ## Deployment
 
-The website is published with GitHub Pages from the `docs/` directory. It is a static site: no package installation, build step, database, or application server is required.
+The website is published with GitHub Pages from the `docs/` directory, with no build step required. Firebase supplies published portfolio content; the bundled JSON snapshot keeps the site readable when cloud content is unavailable. The site contains project descriptions and links, not hosted project files.
 
 ## Author
 

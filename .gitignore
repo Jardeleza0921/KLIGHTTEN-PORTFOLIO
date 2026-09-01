@@ -26,3 +26,6 @@ README_ADMIN_PRIVATE.*
 internal/
 private/
 KLIGHTTEN-PORTFOLIO-ADMIN/
+*firebase-adminsdk*.json
+database.rules*.json
+firebase-debug.log
