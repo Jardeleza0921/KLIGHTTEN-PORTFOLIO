@@ -133,6 +133,22 @@ test('writes require a loaded session, use fresh ID tokens, and compare server v
   }
 });
 
+test('browser-style fetch is called without a CloudWorkspace receiver', async () => {
+  const requests = [];
+  // Browser fetch rejects an arbitrary object as its receiver. Arrow-function
+  // mocks and Node fetch do not expose that browser-specific failure.
+  async function browserFetch(url, init) {
+    assert.equal(this, undefined, 'fetch must not receive the workspace as this');
+    requests.push(init.method);
+    return init.method === 'PUT' ? reply(JSON.parse(init.body)) : reply(null);
+  }
+  const cloud = new CloudWorkspace(async () => 'test-token', { fetcher: browserFetch });
+  await cloud.load();
+  await cloud.saveDraft(sample);
+  await cloud.publish(sample);
+  assert.deepEqual(requests, ['GET', 'GET', 'PUT', 'PUT']);
+});
+
 test('a concurrent edit is not overwritten or automatically retried', async () => {
   let writes = 0;
   const cloud = new CloudWorkspace(async () => 'test-token', {

@@ -79,7 +79,10 @@ export class CloudWorkspace {
         headers['Content-Type'] = 'application/json';
         headers['If-Match'] = etag;
       }
-      const response = await this.fetcher(url, {
+      // Native browser fetch rejects an arbitrary object as its receiver.
+      // Detach it so the call does not bind `this` to the CloudWorkspace.
+      const request = this.fetcher;
+      const response = await request(url, {
         method: writing ? 'PUT' : 'GET',
         headers,
         body: writing ? JSON.stringify(body) : undefined,
