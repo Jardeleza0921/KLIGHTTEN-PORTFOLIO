@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" data-theme="neon-arcade">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="The work and learning journey of Jaru Iori N. Jardeleza. Cloud, Linux, web, mobile, and AI projects."
+    />
+    <meta name="theme-color" content="#0b0c13" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https: http:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"
+    />
+    <meta property="og:title" content="About Jaru — Klightten" />
+    <meta
+      property="og:description"
+      content="Jaru Iori N. Jardeleza · BSIT student and aspiring cloud engineer."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://jardeleza0921.github.io/KLIGHTTEN-PORTFOLIO/about.html" />
+    <title>About Jaru — Klightten</title>
+    <link rel="icon" href="assets/images/favicon.svg" />
+    <link rel="stylesheet" href="assets/css/theme.css" />
+    <link rel="stylesheet" href="assets/css/portfolio.css" />
+    <script type="module" src="assets/js/portfolio.js"></script>
+  </head>
+  <body data-page="about">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="container">
+      <header class="site-header">
+        <a class="brand" href="./" aria-label="Klightten home"
+          ><span class="brand-mark">K</span>Klightten<span class="dim mono">/</span></a
+        >
+        <div class="nav-tools">
+          <nav class="nav" aria-label="Main navigation">
+            <a href="./">Home</a>
+            <a href="work.html">Work</a>
+            <a href="about.html" aria-current="page">About</a>
+          </nav>
+          <select class="theme-picker" data-theme aria-label="Color theme"></select>
+        </div>
+      </header>
+      <p class="empty" data-load-notice role="alert" hidden></p>
+      <noscript
+        ><p class="empty">
+          Enable JavaScript to load the project library. My source code and project notes are
+          available on <a href="https://github.com/Jardeleza0921/KLIGHTTEN-PORTFOLIO">GitHub</a>.
+        </p></noscript
+      >
+      <main id="main">
+        <header class="page-heading">
+          <p class="eyebrow">The person behind the projects</p>
+          <h1>A student mindset.<br />A builder’s curiosity.</h1>
+        </header>
+        <section class="about-layout">
+          <aside class="identity-card">
+            <div class="identity-mark" aria-hidden="true">JJ</div>
+            <h2 data-profile="name"></h2>
+            <p data-profile="role"></p>
+            <p data-profile="school"></p>
+            <p data-profile="stage"></p>
+            <p data-profile="location"></p>
+            <a
+              class="button secondary small"
+              data-github
+              href="https://github.com/Jardeleza0921"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub profile ↗</a
+            >
+          </aside>
+          <div>
+            <p class="eyebrow">A little about me</p>
+            <p class="reading-copy preserve-lines" data-profile="about"></p>
+            <p class="eyebrow">My focus right now</p>
+            <h2 data-profile="currentFocus"></h2>
+            <p class="reading-copy" data-profile="intro"></p>
+          </div>
+        </section>
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Tools & practice</p>
+              <h2>Learning through the work.</h2>
+            </div>
+          </div>
+          <div class="skills-grid" data-skills></div>
+        </section>
+        <section class="section" id="journey">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">The learning roadmap</p>
+              <h2>Progress, with direction.</h2>
+            </div>
+          </div>
+          <div class="journey" data-journey></div>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <p>© <span data-year>2026</span> <span data-profile="name">Jaru Iori N. Jardeleza</span></p>
+        <nav aria-label="Footer">
+          <a
+            href="https://github.com/Jardeleza0921/KLIGHTTEN-PORTFOLIO"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Source code ↗</a
+          ><span>Updated <span data-updated>September 2026</span></span>
+        </nav>
+      </footer>
+    </div>
+    <dialog data-project-dialog aria-labelledby="project-dialog-title">
+      <div class="dialog-bar">
+        <span class="eyebrow">Project notes</span
+        ><button type="button" data-close-dialog aria-label="Close project">×</button>
+      </div>
+      <div class="dialog-body" data-project-detail></div>
+    </dialog>
+  </body>
+</html>

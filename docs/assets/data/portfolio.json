@@ -1,6 +1,6 @@
-window.KLIGHTTEN_PORTFOLIO = {
-  "version": 3,
-  "updated": "August 30, 2026",
+{
+  "version": 4,
+  "updated": "September 1, 2026",
   "profile": {
     "name": "Jaru Iori N. Jardeleza",
     "shortName": "Jaru",
@@ -10,25 +10,51 @@ window.KLIGHTTEN_PORTFOLIO = {
     "currentFocus": "KLIGHTTEN CLOUD",
     "headline": "Learning in public. Building with purpose.",
     "intro": "I build practical systems across cloud infrastructure, Linux, web, mobile, and AI. Klightten is the growing library of what I learn, improve, and release.",
-    "github": "https://github.com/Jardeleza0921",
-    "klightten": "https://jardeleza0921.netlify.app/"
+    "about": "I’m Jaru Iori N. Jardeleza, a BSIT student at Pateros Technological College and an aspiring cloud engineer. I learn best when an idea has to survive outside a lesson: on real hardware, with real limits, and with enough documentation that I can understand it again later.\n\nKlightten is the identity I give to that process. It brings together my work in Linux, cloud infrastructure, web systems, mobile applications, databases, and local AI. Each project is evidence of what I understood at that point—and a starting place for the next improvement.",
+    "location": "Philippines",
+    "github": "https://github.com/Jardeleza0921"
+  },
+  "settings": {
+    "siteTitle": "Klightten — Jaru Iori N. Jardeleza",
+    "description": "The work and learning journey of Jaru Iori N. Jardeleza. Cloud, Linux, web, mobile, and AI projects.",
+    "defaultTheme": "neon-arcade",
+    "projectsPerPage": 9,
+    "motion": true
   },
   "skills": [
     {
       "group": "Building with",
-      "items": ["Python & Java", "Flutter & Dart", "React & Vite", "HTML, CSS & JavaScript", "Node.js"]
+      "items": [
+        "Python & Java",
+        "Flutter & Dart",
+        "React & Vite",
+        "HTML, CSS & JavaScript",
+        "Node.js"
+      ]
     },
     {
       "group": "Systems & tools",
-      "items": ["Linux Mint XFCE", "Git & GitHub", "SSH & Linux administration", "HID / udev", "Qt & GTK"]
+      "items": [
+        "Linux Mint XFCE",
+        "Git & GitHub",
+        "SSH & Linux administration",
+        "HID / udev",
+        "Qt & GTK"
+      ]
     },
     {
       "group": "Data & services",
-      "items": ["Supabase & PostgreSQL", "Firebase", "MySQL / MariaDB", "REST APIs", "Netlify & GitHub Pages"]
+      "items": ["Supabase & PostgreSQL", "Firebase", "MySQL / MariaDB", "REST APIs", "GitHub Pages"]
     },
     {
       "group": "Learning now",
-      "items": ["Cloud servers", "Nginx", "DNS & HTTPS", "Networking & firewalls", "AWS, Oracle & Azure fundamentals"]
+      "items": [
+        "Cloud servers",
+        "Nginx",
+        "DNS & HTTPS",
+        "Networking & firewalls",
+        "AWS, Oracle & Azure fundamentals"
+      ]
     }
   ],
   "journey": [
@@ -71,10 +97,16 @@ window.KLIGHTTEN_PORTFOLIO = {
       "status": "Active Learning · Top Priority",
       "year": "2026",
       "featured": true,
+      "published": true,
+      "summary": "A personal always-online cloud and server environment built as a hands-on path into cloud engineering—starting with remote Linux administration and growing toward hosted services, DNS, HTTPS, monitoring, and automation.",
       "description": "A personal always-online cloud and server environment built as a hands-on path into cloud engineering—starting with remote Linux administration and growing toward hosted services, DNS, HTTPS, monitoring, and automation.",
+      "role": "",
       "tech": ["Linux", "SSH", "Nginx", "DNS", "HTTPS"],
-      "link": "",
-      "linkLabel": ""
+      "liveUrl": "",
+      "repoUrl": "",
+      "notesUrl": "",
+      "coverUrl": "",
+      "coverAlt": ""
     },
     {
       "id": "baghaven",
@@ -83,10 +115,16 @@ window.KLIGHTTEN_PORTFOLIO = {
       "status": "Active Full System",
       "year": "2026",
       "featured": true,
+      "published": true,
+      "summary": "A responsive React storefront with customer accounts, carts, wishlists, checkout, orders, inventory, coupons, announcements, analytics, and a protected administrator workspace backed by Supabase and PostgreSQL.",
       "description": "A responsive React storefront with customer accounts, carts, wishlists, checkout, orders, inventory, coupons, announcements, analytics, and a protected administrator workspace backed by Supabase and PostgreSQL.",
+      "role": "",
       "tech": ["React", "Vite", "Supabase", "PostgreSQL", "GitHub Actions"],
-      "link": "https://github.com/Jardeleza0921/BAGHAVEN",
-      "linkLabel": "Open repository"
+      "liveUrl": "",
+      "repoUrl": "https://github.com/Jardeleza0921/BAGHAVEN",
+      "notesUrl": "",
+      "coverUrl": "",
+      "coverAlt": ""
     },
     {
       "id": "klightten-ai",
@@ -95,10 +133,16 @@ window.KLIGHTTEN_PORTFOLIO = {
       "status": "Working Prototype",
       "year": "2026",
       "featured": true,
+      "published": true,
+      "summary": "A Flutter assistant for Linux and Android, connecting local GGUF models through llama.cpp with room for optional online APIs.",
       "description": "A personal assistant for Linux and Android that connects a Flutter interface to local GGUF models through llama.cpp, with room for optional online APIs and routing services.",
+      "role": "",
       "tech": ["Flutter", "Dart", "llama.cpp", "GGUF", "REST APIs"],
-      "link": "",
-      "linkLabel": ""
+      "liveUrl": "",
+      "repoUrl": "",
+      "notesUrl": "",
+      "coverUrl": "",
+      "coverAlt": ""
     },
     {
       "id": "klightten-keyboard",
@@ -107,10 +151,16 @@ window.KLIGHTTEN_PORTFOLIO = {
       "status": "Released · 8.5",
       "year": "2026",
       "featured": true,
+      "published": true,
+      "summary": "A lightweight Linux companion for supported SteelSeries Apex keyboards with OLED text, GIF animation, playlists, system monitoring, installable themes, stable HID ownership, and optional RGB controls.",
       "description": "A lightweight Linux companion for supported SteelSeries Apex keyboards with OLED text, GIF animation, playlists, system monitoring, installable themes, stable HID ownership, and optional RGB controls.",
+      "role": "",
       "tech": ["Python", "Tkinter", "hidapi", "Pillow", "udev"],
-      "link": "https://github.com/Jardeleza0921/KLIGHTTEN-KEYBOARD",
-      "linkLabel": "Open repository"
+      "liveUrl": "",
+      "repoUrl": "https://github.com/Jardeleza0921/KLIGHTTEN-KEYBOARD",
+      "notesUrl": "",
+      "coverUrl": "",
+      "coverAlt": ""
     },
     {
       "id": "equallearn",
@@ -119,10 +169,16 @@ window.KLIGHTTEN_PORTFOLIO = {
       "status": "Capstone In Progress",
       "year": "2026",
       "featured": true,
+      "published": true,
+      "summary": "A responsive learning system for administrators, teachers, and students, developed by a five-student team for gender equality education and awareness at Pateros Technological College.",
       "description": "A responsive learning system for administrators, teachers, and students, developed by a five-student team for gender equality education and awareness at Pateros Technological College.",
+      "role": "",
       "tech": ["HTML", "JavaScript", "Firebase", "Capacitor", "Netlify"],
-      "link": "https://equallearn.netlify.app",
-      "linkLabel": "Open live demo"
+      "liveUrl": "https://equallearn.netlify.app/",
+      "repoUrl": "",
+      "notesUrl": "",
+      "coverUrl": "",
+      "coverAlt": ""
     },
     {
       "id": "klightten-media",
@@ -131,10 +187,16 @@ window.KLIGHTTEN_PORTFOLIO = {
       "status": "Working Build · 2.7",
       "year": "2026",
       "featured": false,
+      "published": true,
+      "summary": "A Linux desktop media experience for local and online playback, anime workflows, background media, custom themes, playlists, keyboard controls, and a floating player.",
       "description": "A Linux desktop media experience for local and online playback, anime workflows, background media, custom themes, playlists, keyboard controls, and a floating player.",
+      "role": "",
       "tech": ["Python", "PyQt6", "Qt WebEngine", "mpv", "ani-cli"],
-      "link": "https://github.com/Jardeleza0921/KLIGHTTEN-MEDIA-SITE",
-      "linkLabel": "Open project site repository"
+      "liveUrl": "",
+      "repoUrl": "https://github.com/Jardeleza0921/KLIGHTTEN-MEDIA-SITE",
+      "notesUrl": "",
+      "coverUrl": "",
+      "coverAlt": ""
     },
     {
       "id": "klight-panel-v3",
@@ -143,22 +205,34 @@ window.KLIGHTTEN_PORTFOLIO = {
       "status": "Working Prototype",
       "year": "2026",
       "featured": false,
+      "published": true,
+      "summary": "A custom lightweight bottom panel designed to replace the standard XFCE panel with system dashboards, accessibility controls, session tools, media integration, and a compact Klightten identity.",
       "description": "A custom lightweight bottom panel designed to replace the standard XFCE panel with system dashboards, accessibility controls, session tools, media integration, and a compact Klightten identity.",
+      "role": "",
       "tech": ["Linux", "Python", "GTK 3", "XFCE", "stalonetray"],
-      "link": "",
-      "linkLabel": ""
+      "liveUrl": "",
+      "repoUrl": "",
+      "notesUrl": "",
+      "coverUrl": "",
+      "coverAlt": ""
     },
     {
       "id": "klightten-portfolio",
       "title": "Klightten Portfolio",
       "category": "Web Development",
-      "status": "Live · GitHub Published",
+      "status": "GitHub Pages Edition",
       "year": "2026",
       "featured": false,
-      "description": "A professional, responsive portfolio and growing work library with searchable projects, four Klightten themes, browser-based editing, secure direct-to-GitHub publishing, backups, and automatic deployment.",
-      "tech": ["HTML", "CSS", "JavaScript", "GitHub Pages", "Netlify"],
-      "link": "https://jardeleza0921.netlify.app/",
-      "linkLabel": "Open live portfolio"
+      "published": true,
+      "summary": "A plain HTML, CSS, and JavaScript portfolio with a searchable work library, four themes, and a separate local editing workspace.",
+      "description": "My portfolio is organized as readable pages, shared styles, JavaScript modules, and one public JSON file. A separate local workspace handles project editing, profile settings, previews, and optional GitHub publishing. Only the docs folder is deployed to GitHub Pages; the editor stays outside the public website.",
+      "role": "",
+      "tech": ["HTML", "CSS", "JavaScript", "JSON", "GitHub Pages"],
+      "liveUrl": "https://jardeleza0921.github.io/KLIGHTTEN-PORTFOLIO/",
+      "repoUrl": "https://github.com/Jardeleza0921/KLIGHTTEN-PORTFOLIO",
+      "notesUrl": "",
+      "coverUrl": "",
+      "coverAlt": ""
     },
     {
       "id": "xfce-dotfiles",
@@ -167,10 +241,16 @@ window.KLIGHTTEN_PORTFOLIO = {
       "status": "Published Archive",
       "year": "2022",
       "featured": false,
+      "published": true,
+      "summary": "An earlier documented XFCE desktop setup using the Tokyo Night color scheme, Xfwm, Plank, Alacritty, Thunar, and Bash.",
       "description": "An earlier documented XFCE desktop setup using the Tokyo Night color scheme, Xfwm, Plank, Alacritty, Thunar, and Bash. It shows the customization roots that later influenced the Klightten interface style.",
+      "role": "",
       "tech": ["XFCE", "Xfwm", "Alacritty", "Plank", "Bash"],
-      "link": "https://github.com/Jardeleza0921/dotfile",
-      "linkLabel": "Open repository"
+      "liveUrl": "",
+      "repoUrl": "https://github.com/Jardeleza0921/dotfile",
+      "notesUrl": "",
+      "coverUrl": "",
+      "coverAlt": ""
     },
     {
       "id": "ptcmed-database",
@@ -179,10 +259,16 @@ window.KLIGHTTEN_PORTFOLIO = {
       "status": "Academic Project",
       "year": "2025",
       "featured": false,
+      "published": true,
+      "summary": "A clinical management database covering doctors, patients, billing, relationships, sample records, and integration concepts for structured healthcare data.",
       "description": "A clinical management database covering doctors, patients, billing, relationships, sample records, and integration concepts for structured healthcare data.",
+      "role": "",
       "tech": ["MySQL", "MariaDB", "SQL", "MS Access"],
-      "link": "",
-      "linkLabel": ""
+      "liveUrl": "",
+      "repoUrl": "",
+      "notesUrl": "",
+      "coverUrl": "",
+      "coverAlt": ""
     }
   ]
-};
+}

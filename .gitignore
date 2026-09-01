@@ -1,0 +1,10 @@
+# Keep private workspace exports and credentials out of Git.
+klightten-workspace-backup*.json
+private-backups/
+.env
+.env.*
+!.env.example
+node_modules/
+.DS_Store
+Thumbs.db
+*.log

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en" data-theme="neon-arcade">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="The work and learning journey of Jaru Iori N. Jardeleza. Cloud, Linux, web, mobile, and AI projects."
+    />
+    <meta name="theme-color" content="#0b0c13" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https: http:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"
+    />
+    <meta property="og:title" content="Work library — Klightten" />
+    <meta
+      property="og:description"
+      content="Jaru Iori N. Jardeleza · BSIT student and aspiring cloud engineer."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://jardeleza0921.github.io/KLIGHTTEN-PORTFOLIO/work.html" />
+    <title>Work library — Klightten</title>
+    <link rel="icon" href="assets/images/favicon.svg" />
+    <link rel="stylesheet" href="assets/css/theme.css" />
+    <link rel="stylesheet" href="assets/css/portfolio.css" />
+    <script type="module" src="assets/js/portfolio.js"></script>
+  </head>
+  <body data-page="work">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="container">
+      <header class="site-header">
+        <a class="brand" href="./" aria-label="Klightten home"
+          ><span class="brand-mark">K</span>Klightten<span class="dim mono">/</span></a
+        >
+        <div class="nav-tools">
+          <nav class="nav" aria-label="Main navigation">
+            <a href="./">Home</a>
+            <a href="work.html" aria-current="page">Work</a>
+            <a href="about.html">About</a>
+          </nav>
+          <select class="theme-picker" data-theme aria-label="Color theme"></select>
+        </div>
+      </header>
+      <p class="empty" data-load-notice role="alert" hidden></p>
+      <noscript
+        ><p class="empty">
+          Enable JavaScript to load the project library. My source code and project notes are
+          available on <a href="https://github.com/Jardeleza0921/KLIGHTTEN-PORTFOLIO">GitHub</a>.
+        </p></noscript
+      >
+      <main id="main">
+        <header class="page-heading">
+          <p class="eyebrow">The work library / Klightten</p>
+          <h1>Built. Tested.<br />Still learning.</h1>
+          <p class="reading-copy">
+            A collection of applications, experiments, and academic work. Open a project to see its
+            context, technologies, and available source code.
+          </p>
+        </header>
+        <section class="section" aria-label="Project library">
+          <form class="filters" role="search">
+            <label
+              >Search projects<input
+                id="search"
+                type="search"
+                placeholder="Linux, cloud, Flutter…"
+                autocomplete="off"
+            /></label>
+            <label
+              >Category<select id="category">
+                <option value="">All categories</option>
+              </select></label
+            >
+            <label
+              >Status<select id="status">
+                <option value="">All statuses</option>
+              </select></label
+            >
+            <label
+              >Order<select id="sort">
+                <option value="curated">My curated order</option>
+                <option value="title">Title A–Z</option>
+                <option value="year">Newest year</option>
+              </select></label
+            >
+          </form>
+          <div class="results-toolbar">
+            <span data-results aria-live="polite"></span
+            ><button class="button small quiet" id="clear-filters" type="button">
+              Clear filters
+            </button>
+          </div>
+          <div class="project-grid" data-projects data-library>
+            <p class="empty">Loading the library…</p>
+          </div>
+          <nav class="pagination" aria-label="Project pages">
+            <button class="button small secondary" id="previous" type="button">← Previous</button
+            ><span data-page-count aria-live="polite"></span
+            ><button class="button small secondary" id="next" type="button">Next →</button>
+          </nav>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <p>© <span data-year>2026</span> <span data-profile="name">Jaru Iori N. Jardeleza</span></p>
+        <nav aria-label="Footer">
+          <a
+            href="https://github.com/Jardeleza0921/KLIGHTTEN-PORTFOLIO"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Source code ↗</a
+          ><span>Updated <span data-updated>September 2026</span></span>
+        </nav>
+      </footer>
+    </div>
+    <dialog data-project-dialog aria-labelledby="project-dialog-title">
+      <div class="dialog-bar">
+        <span class="eyebrow">Project notes</span
+        ><button type="button" data-close-dialog aria-label="Close project">×</button>
+      </div>
+      <div class="dialog-body" data-project-detail></div>
+    </dialog>
+  </body>
+</html>
