@@ -1,9 +1,12 @@
 // The only content schema used by the public website and the local editor.
+// The five canonical Klightten themes: mascot · palette. The matching anime
+// background for each theme lives beside these variables in theme.css.
 export const THEMES = {
-  'neon-arcade': 'Neon Arcade',
-  'classic-green': 'Classic Green',
-  'black-white': 'Black & White',
-  'red-hat': 'Red Hat',
+  'neon-arcade': 'Cat · Neon Arcade',
+  'classic-green': 'Bunny · Dark Mint',
+  'black-white': 'Wolf · Black & White',
+  'red-hat': 'Fox · Crimson Red',
+  'cream-coffee': 'Dog · Cream Coffee',
 };
 export const SITE_URL = 'https://jardeleza0921.github.io/KLIGHTTEN-PORTFOLIO/';
 export const clone = (value) => JSON.parse(JSON.stringify(value));

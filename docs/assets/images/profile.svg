@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Klightten profile portrait">
+  <defs>
+    <linearGradient id="backdrop" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0" stop-color="#1c2338" />
+      <stop offset="1" stop-color="#0b0c13" />
+    </linearGradient>
+    <radialGradient id="aura" cx="0.5" cy="0.36" r="0.6">
+      <stop offset="0" stop-color="#86dfce" stop-opacity="0.5" />
+      <stop offset="1" stop-color="#86dfce" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="figure" x1="0.15" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#eef3ff" />
+      <stop offset="1" stop-color="#8fa1c4" />
+    </linearGradient>
+  </defs>
+  <rect width="240" height="240" fill="url(#backdrop)" />
+  <circle cx="120" cy="88" r="92" fill="url(#aura)" />
+  <path d="M120 152c45 0 82 34 88 88H32c6-54 43-88 88-88Z" fill="url(#figure)" opacity="0.92" />
+  <circle cx="120" cy="94" r="46" fill="url(#figure)" />
+  <circle cx="120" cy="94" r="46" fill="none" stroke="#86dfce" stroke-opacity="0.4" stroke-width="2" />
+</svg>
