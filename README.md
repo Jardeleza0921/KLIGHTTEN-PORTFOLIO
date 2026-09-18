@@ -13,7 +13,8 @@ My personal portfolio and growing library of cloud, Linux, web, mobile, database
 - Home page with an introduction, current focus, and selected projects.
 - Searchable work library with category and status filters, sorting, pagination, and project details.
 - About page with my background, skills, and learning roadmap.
-- Four visual themes: Neon Arcade, Classic Green, Black & White, and Red Hat.
+- Five mascot themes: Bunny (Dark Mint), Cat (Neon Arcade), Wolf (Black & White), Fox (Crimson Red), and Dog (Cream Coffee).
+- A theme-matched anime background, a profile portrait, and gentle entrance and scroll-reveal animation that stay behind the content.
 - Responsive layouts, visible keyboard focus, and reduced-motion support.
 - Structured JSON content, local assets, and no runtime framework or external font dependency.
 - Cloud-published content with a repository snapshot available as a fallback.

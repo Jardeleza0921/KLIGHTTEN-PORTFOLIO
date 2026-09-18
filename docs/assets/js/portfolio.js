@@ -191,5 +191,25 @@ async function start() {
       row.append(phase, copy);
       journey.append(row);
     }
+  // Reveal whole sections once, and only when the visitor allows motion.
+  if (
+    settings.motion !== false &&
+    'IntersectionObserver' in window &&
+    !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  ) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.setAttribute('data-reveal', '');
+          observer.unobserve(entry.target);
+        }
+      },
+      { rootMargin: '0px 0px -5% 0px' }
+    );
+    document
+      .querySelectorAll('main > header, main > section:not(.hero)')
+      .forEach((node) => observer.observe(node));
+  }
 }
 start();

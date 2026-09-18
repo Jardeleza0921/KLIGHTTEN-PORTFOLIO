@@ -13,6 +13,14 @@
   --line: #ffffff13;
   --button-text: #161024;
   --radius: 18px;
+  --mascot: '//  =  ^  w  ^  =  )';
+  --bg-art:
+    url('../images/mascots/cat.svg'),
+    radial-gradient(940px 640px at 8% -12%, #bca8ff33, transparent 62%),
+    radial-gradient(780px 540px at 92% 2%, #86dfce29, transparent 60%),
+    radial-gradient(720px 720px at 50% 116%, #6f5bff26, transparent 66%),
+    repeating-linear-gradient(0deg, #ffffff14 0 1px, transparent 1px 48px),
+    repeating-linear-gradient(90deg, #ffffff14 0 1px, transparent 1px 48px);
 }
 [data-theme='classic-green'] {
   --bg: #0a110f;
@@ -25,6 +33,13 @@
   --accent-soft: #a0dda516;
   --mint: #b5e8c3;
   --button-text: #112017;
+  --mascot: '!!  =  •  v  •  =  )';
+  --bg-art:
+    url('../images/mascots/bunny.svg'),
+    radial-gradient(900px 620px at 14% -10%, #a0dda52e, transparent 62%),
+    radial-gradient(760px 520px at 88% 2%, #b5e8c326, transparent 60%),
+    radial-gradient(720px 720px at 50% 116%, #6ec8a524, transparent 66%),
+    repeating-radial-gradient(circle at 50% 120%, #ffffff0d 0 1px, transparent 1px 58px);
 }
 [data-theme='black-white'] {
   --bg: #0c0c0d;
@@ -37,6 +52,13 @@
   --accent-soft: #ffffff12;
   --mint: #c7c7ce;
   --button-text: #121214;
+  --mascot: '>>  =  ^  _  ^  =  )';
+  --bg-art:
+    url('../images/mascots/wolf.svg'),
+    radial-gradient(1000px 700px at 16% -14%, #ffffff21, transparent 60%),
+    linear-gradient(112deg, #ffffff16 0 15%, transparent 44%),
+    radial-gradient(720px 720px at 88% 106%, #ffffff16, transparent 62%),
+    repeating-linear-gradient(0deg, #ffffff0f 0 1px, transparent 1px 64px);
 }
 [data-theme='red-hat'] {
   --bg: #150e10;
@@ -49,6 +71,34 @@
   --accent-soft: #ff919912;
   --mint: #f7b89e;
   --button-text: #331014;
+  --mascot: '//  =  >  v  <  =  )';
+  --bg-art:
+    url('../images/mascots/fox.svg'),
+    radial-gradient(940px 620px at 10% -10%, #ff919935, transparent 62%),
+    radial-gradient(720px 520px at 90% 4%, #f7b89e24, transparent 60%),
+    radial-gradient(700px 700px at 50% 118%, #ff5f6d26, transparent 66%),
+    repeating-linear-gradient(135deg, #ffffff0f 0 1px, transparent 1px 46px);
+}
+[data-theme='cream-coffee'] {
+  color-scheme: light;
+  --bg: #f4ece0;
+  --surface: #fffaf2;
+  --surface-2: #efe3d3;
+  --text: #3b2b20;
+  --muted: #6a5645;
+  --dim: #7a6551;
+  --accent: #8a5327;
+  --accent-soft: #8a532716;
+  --mint: #75563a;
+  --line: #3b2b2021;
+  --button-text: #fff8f0;
+  --mascot: '//  =  o  v  o  =  )';
+  --bg-art:
+    url('../images/mascots/dog.svg'),
+    radial-gradient(920px 620px at 10% -10%, #b07a452e, transparent 60%),
+    radial-gradient(760px 520px at 90% 2%, #dcc09a35, transparent 58%),
+    radial-gradient(680px 680px at 50% 116%, #8a532722, transparent 66%),
+    repeating-linear-gradient(0deg, #3b2b2012 0 1px, transparent 1px 56px);
 }
 * {
   box-sizing: border-box;
@@ -81,6 +131,57 @@ body {
   color: var(--text);
   background: var(--bg);
   line-height: 1.6;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+/*
+  Anime-inspired theme backgrounds.
+  Layer 1 is the theme mascot silhouette, then the atmosphere glows, then the
+  surface pattern. Everything stays behind the interface inside one fixed,
+  non-interactive layer, so no background detail can create scrolling or
+  overlap the content.
+*/
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: var(--bg-art);
+  background-repeat: no-repeat;
+  background-position:
+    right -6vw top 16vh,
+    0 0,
+    0 0,
+    0 0,
+    0 0,
+    0 0;
+  background-size:
+    min(46vw, 520px),
+    auto,
+    auto,
+    auto,
+    auto,
+    auto;
+}
+/* The mascot identity of the active theme, kept faint and out of the way. */
+body::after {
+  content: var(--mascot);
+  position: fixed;
+  left: clamp(14px, 3vw, 30px);
+  bottom: 18px;
+  z-index: -1;
+  pointer-events: none;
+  color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  white-space: pre;
+  opacity: 0.3;
+  transition:
+    color 0.35s ease,
+    opacity 0.35s ease;
 }
 a {
   color: inherit;
@@ -154,10 +255,15 @@ button:disabled {
   font-weight: 650;
   transition:
     background 0.15s,
+    border-color 0.3s ease,
+    color 0.3s ease,
     transform 0.15s;
 }
 .button:hover {
   transform: translateY(-1px);
+}
+.button:active {
+  transform: translateY(0);
 }
 .secondary {
   background: var(--surface);
@@ -312,6 +418,27 @@ dialog::backdrop {
   line-height: 1.85;
   font-size: 0.96rem;
 }
+@media (max-width: 740px) {
+  body::after {
+    display: none;
+  }
+  body::before {
+    background-position:
+      right -16vw top 10vh,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0;
+    background-size:
+      min(64vw, 320px),
+      auto,
+      auto,
+      auto,
+      auto,
+      auto;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -323,7 +450,8 @@ dialog::backdrop {
 }
 html[data-motion='false'],
 html[data-motion='false'] *,
-html[data-motion='false'] *::before {
+html[data-motion='false'] *::before,
+html[data-motion='false'] *::after {
   scroll-behavior: auto !important;
   animation: none !important;
   transition: none !important;
