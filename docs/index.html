@@ -38,7 +38,16 @@
             <a href="./" aria-current="page">Home</a>
             <a href="work.html">Work</a>
             <a href="about.html">About</a>
+            <a href="#contact">Contact</a>
           </nav>
+          <img
+            class="theme-mascot"
+            data-mascot
+            src="assets/images/stickers/cat.png"
+            alt="Cat · Neon Arcade mascot sticker"
+            width="36"
+            height="36"
+          />
           <select class="theme-picker" data-theme aria-label="Color theme"></select>
         </div>
       </header>
@@ -51,26 +60,60 @@
       >
       <main id="main">
         <section class="hero">
-          <div>
+          <div class="hero-copy">
             <div class="hero-profile">
               <img
                 class="profile-photo"
-                src="assets/images/profile.svg"
+                src="assets/images/profile.png"
                 alt="Portrait of Jaru Iori N. Jardeleza"
                 width="100"
                 height="100"
               />
-              <p class="eyebrow"><span class="signal"></span>Jaru’s portfolio / always in progress</p>
+              <div class="hero-identity">
+                <p class="eyebrow">
+                  <span class="signal"></span
+                  ><span data-profile="role">BSIT Student · Aspiring Cloud Engineer</span>
+                </p>
+                <p class="hero-role">
+                  <span data-profile="school">Pateros Technological College</span> ·
+                  <span data-profile="stage">Third Year · First Semester</span>
+                  <span aria-hidden="true">·</span> Philippines
+                </p>
+              </div>
             </div>
             <h1 data-headline>Learning in public.<em>Building with purpose.</em></h1>
-            <p class="hero-intro" data-profile="intro"></p>
+            <p class="hero-intro" data-profile="intro">
+              I build and document practical systems across cloud infrastructure, Linux, web, mobile,
+              databases, and local AI — turning coursework into working software. Klightten is the
+              growing library of what I learn, improve, and release.
+            </p>
+            <ul class="hero-focus" aria-label="Technical focus">
+              <li>Cloud &amp; Linux</li>
+              <li>Web systems</li>
+              <li>Mobile apps</li>
+              <li>Databases</li>
+              <li>Local AI</li>
+            </ul>
+            <p class="hero-goal">
+              Now building <strong data-profile="currentFocus">KLIGHTTEN CLOUD</strong>, an
+              always-online Linux server I operate over SSH — systems thinking on real hardware,
+              leading toward a cloud engineering career.
+            </p>
             <div class="button-row">
-              <a class="button" href="work.html">Explore my work ↗</a
-              ><a class="button quiet" href="about.html">A little about me</a>
+              <a class="button" href="#contact">Contact me ↗</a
+              ><a class="button secondary" href="work.html">View my work ↗</a
+              ><a class="button quiet" href="about.html">About me</a>
             </div>
-            <p class="hero-role" data-profile="role"></p>
           </div>
           <aside class="focus-card" aria-label="Current focus">
+            <img
+              class="theme-mascot"
+              data-mascot
+              src="assets/images/stickers/cat.png"
+              alt="Cat · Neon Arcade mascot sticker"
+              width="76"
+              height="76"
+            />
             <img
               class="focus-art"
               src="assets/images/klightten-network.png"
@@ -94,7 +137,7 @@
         <section class="meta-strip" aria-label="Portfolio overview">
           <div>
             <strong data-profile="shortName">Jaru</strong>
-            <p data-profile="school"></p>
+            <p data-profile="school">Pateros Technological College</p>
           </div>
           <div>
             <strong class="mono" data-total>—</strong>
@@ -154,19 +197,27 @@
             </article>
           </div>
         </section>
-        <section class="closing">
+        <section class="closing" id="contact">
           <div>
-            <p class="eyebrow">Follow the progress</p>
-            <h2>There’s more to build.</h2>
+            <p class="eyebrow">Contact</p>
+            <h2>Open to internships and junior cloud roles.</h2>
+            <p class="reading-copy">
+              I’m a third-year BSIT student in the Philippines open to internships, junior cloud and
+              Linux work, and student collaborations. The fastest way to reach me is my GitHub — ask
+              there and I’ll share my résumé.
+            </p>
           </div>
-          <a
-            class="button secondary"
-            data-github
-            href="https://github.com/Jardeleza0921"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Find me on GitHub ↗</a
-          >
+          <div class="button-row">
+            <a
+              class="button"
+              data-github
+              href="https://github.com/Jardeleza0921"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Contact me on GitHub ↗</a
+            >
+            <a class="button quiet" href="work.html">See the project library</a>
+          </div>
         </section>
       </main>
       <footer class="site-footer">
