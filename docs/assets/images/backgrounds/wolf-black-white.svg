@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="Wolf Black-White anime background">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.85" y2="1">
+      <stop offset="0%" stop-color="#0c0c0d"/>
+      <stop offset="50%" stop-color="#151517"/>
+      <stop offset="100%" stop-color="#1e1e21"/>
+    </linearGradient>
+    <radialGradient id="moonGlow" cx="78%" cy="18%" r="52%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="mistLow" cx="50%" cy="92%" r="70%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ridge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.07"/>
+    </linearGradient>
+    <pattern id="gridMono" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#moonGlow)"/>
+  <!-- Moon -->
+  <circle cx="1520" cy="220" r="54" fill="#ffffff" opacity="0.08"/>
+  <circle cx="1520" cy="220" r="62" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"/>
+  <circle cx="1520" cy="220" r="78" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+  <!-- Distant mountain ridges -->
+  <path d="M0 720 L120 660 L240 690 L360 632 L480 658 L620 602 L760 628 L880 576 L1000 602 L1140 548 L1280 576 L1420 522 L1560 552 L1680 498 L1820 528 L1920 492 L1920 1080 L0 1080 Z" fill="#171718" opacity="0.9"/>
+  <path d="M0 780 L140 730 L280 750 L420 708 L560 728 L700 682 L840 700 L980 652 L1120 672 L1260 624 L1400 648 L1540 600 L1680 622 L1800 582 L1920 600 L1920 1080 L0 1080 Z" fill="#222224" opacity="0.85"/>
+  <path d="M0 860 L160 830 L320 810 L480 788 L640 770 L800 748 L960 730 L1120 710 L1280 690 L1440 672 L1600 654 L1760 640 L1920 628 L1920 1080 L0 1080 Z" fill="url(#ridge)" opacity="0.9"/>
+  <!-- Pine silhouettes -->
+  <g fill="#0a0a0b" opacity="0.35">
+    <path d="M140 1080 L180 820 L220 1080 Z"/><path d="M300 1080 L340 860 L380 1080 Z"/><path d="M620 1080 L660 780 L700 1080 Z"/>
+    <path d="M960 1080 L1000 740 L1040 1080 Z"/><path d="M1220 1080 L1260 800 L1300 1080 Z"/><path d="M1480 1080 L1520 830 L1560 1080 Z"/>
+    <path d="M1700 1080 L1740 860 L1780 1080 Z"/>
+  </g>
+  <!-- Snow/mist lights -->
+  <g fill="#ffffff" opacity="0.09">
+    <circle cx="420" cy="740" r="1.8"/><circle cx="740" cy="690" r="1.4"/><circle cx="960" cy="700" r="2"/><circle cx="1280" cy="640" r="1.6"/><circle cx="1520" cy="600" r="1.2"/>
+  </g>
+  <rect width="1920" height="1080" fill="url(#gridMono)" opacity="0.6"/>
+  <rect width="1920" height="1080" fill="url(#mistLow)"/>
+  <!-- Wolf silhouette — faint top-right -->
+  <g opacity="0.07" fill="#ededed">
+    <path d="M1500 260 L1540 120 L1600 196 Z"/><path d="M1740 260 L1700 120 L1640 196 Z"/><path d="M1615 184 c -72 0 -124 48 -124 112 c 0 58 38 94 64 128 h128 c 26 -34 64 -70 64 -128 c 0 -64 -52 -112 -132 -112 Z"/>
+  </g>
+</svg>

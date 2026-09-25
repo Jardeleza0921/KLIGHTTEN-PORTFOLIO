@@ -8,6 +8,13 @@ export const THEMES = {
   'red-hat': 'Fox · Crimson Red',
   'cream-coffee': 'Dog · Cream Coffee',
 };
+export const MASCOTS = {
+  'neon-arcade': { key: 'cat', label: 'Cat · Neon Arcade' },
+  'classic-green': { key: 'bunny', label: 'Bunny · Dark Mint' },
+  'black-white': { key: 'wolf', label: 'Wolf · Black & White' },
+  'red-hat': { key: 'fox', label: 'Fox · Crimson Red' },
+  'cream-coffee': { key: 'dog', label: 'Dog · Cream Coffee' },
+};
 export const SITE_URL = 'https://jardeleza0921.github.io/KLIGHTTEN-PORTFOLIO/';
 export const clone = (value) => JSON.parse(JSON.stringify(value));
 const list = (value) => (Array.isArray(value) ? value : []);

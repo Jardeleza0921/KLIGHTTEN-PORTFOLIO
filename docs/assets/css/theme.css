@@ -14,13 +14,14 @@
   --button-text: #161024;
   --radius: 18px;
   --mascot: '//  =  ^  w  ^  =  )';
+  --bg-scrim: #0b0c1394;
   --bg-art:
-    url('../images/mascots/cat.svg'),
-    radial-gradient(940px 640px at 8% -12%, #bca8ff33, transparent 62%),
-    radial-gradient(780px 540px at 92% 2%, #86dfce29, transparent 60%),
-    radial-gradient(720px 720px at 50% 116%, #6f5bff26, transparent 66%),
-    repeating-linear-gradient(0deg, #ffffff14 0 1px, transparent 1px 48px),
-    repeating-linear-gradient(90deg, #ffffff14 0 1px, transparent 1px 48px);
+    radial-gradient(940px 640px at 8% -12%, #bca8ff1f, transparent 68%),
+    radial-gradient(820px 520px at 88% 2%, #86dfce18, transparent 64%),
+    linear-gradient(var(--bg-scrim), var(--bg-scrim)),
+    url('../images/backgrounds/cat-neon-arcade.webp'),
+    radial-gradient(720px 720px at 50% 116%, #6f5bff16, transparent 68%),
+    repeating-linear-gradient(0deg, #ffffff0a 0 1px, transparent 1px 52px);
 }
 [data-theme='classic-green'] {
   --bg: #0a110f;
@@ -33,13 +34,15 @@
   --accent-soft: #a0dda516;
   --mint: #b5e8c3;
   --button-text: #112017;
+  --bg-scrim: #0a110f96;
   --mascot: '!!  =  •  v  •  =  )';
   --bg-art:
-    url('../images/mascots/bunny.svg'),
-    radial-gradient(900px 620px at 14% -10%, #a0dda52e, transparent 62%),
-    radial-gradient(760px 520px at 88% 2%, #b5e8c326, transparent 60%),
-    radial-gradient(720px 720px at 50% 116%, #6ec8a524, transparent 66%),
-    repeating-radial-gradient(circle at 50% 120%, #ffffff0d 0 1px, transparent 1px 58px);
+    radial-gradient(900px 620px at 14% -10%, #a0dda520, transparent 66%),
+    radial-gradient(760px 520px at 88% 2%, #b5e8c318, transparent 64%),
+    linear-gradient(var(--bg-scrim), var(--bg-scrim)),
+    url('../images/backgrounds/bunny-dark-mint.webp'),
+    radial-gradient(720px 720px at 50% 116%, #6ec8a516, transparent 68%),
+    repeating-radial-gradient(circle at 50% 120%, #ffffff08 0 1px, transparent 1px 64px);
 }
 [data-theme='black-white'] {
   --bg: #0c0c0d;
@@ -52,13 +55,15 @@
   --accent-soft: #ffffff12;
   --mint: #c7c7ce;
   --button-text: #121214;
+  --bg-scrim: #0c0c0d99;
   --mascot: '>>  =  ^  _  ^  =  )';
   --bg-art:
-    url('../images/mascots/wolf.svg'),
-    radial-gradient(1000px 700px at 16% -14%, #ffffff21, transparent 60%),
-    linear-gradient(112deg, #ffffff16 0 15%, transparent 44%),
-    radial-gradient(720px 720px at 88% 106%, #ffffff16, transparent 62%),
-    repeating-linear-gradient(0deg, #ffffff0f 0 1px, transparent 1px 64px);
+    radial-gradient(1000px 700px at 16% -14%, #ffffff16, transparent 62%),
+    radial-gradient(720px 720px at 88% 106%, #ffffff0e, transparent 64%),
+    linear-gradient(var(--bg-scrim), var(--bg-scrim)),
+    url('../images/backgrounds/wolf-black-white.webp'),
+    linear-gradient(112deg, #ffffff10 0 15%, transparent 44%),
+    repeating-linear-gradient(0deg, #ffffff08 0 1px, transparent 1px 68px);
 }
 [data-theme='red-hat'] {
   --bg: #150e10;
@@ -71,13 +76,15 @@
   --accent-soft: #ff919912;
   --mint: #f7b89e;
   --button-text: #331014;
+  --bg-scrim: #150e1094;
   --mascot: '//  =  >  v  <  =  )';
   --bg-art:
-    url('../images/mascots/fox.svg'),
-    radial-gradient(940px 620px at 10% -10%, #ff919935, transparent 62%),
-    radial-gradient(720px 520px at 90% 4%, #f7b89e24, transparent 60%),
-    radial-gradient(700px 700px at 50% 118%, #ff5f6d26, transparent 66%),
-    repeating-linear-gradient(135deg, #ffffff0f 0 1px, transparent 1px 46px);
+    radial-gradient(940px 620px at 10% -10%, #ff919924, transparent 66%),
+    radial-gradient(720px 520px at 90% 4%, #f7b89e16, transparent 64%),
+    linear-gradient(var(--bg-scrim), var(--bg-scrim)),
+    url('../images/backgrounds/fox-crimson-red.webp'),
+    radial-gradient(700px 700px at 50% 118%, #ff5f6d16, transparent 68%),
+    repeating-linear-gradient(135deg, #ffffff08 0 1px, transparent 1px 48px);
 }
 [data-theme='cream-coffee'] {
   color-scheme: light;
@@ -92,13 +99,15 @@
   --mint: #75563a;
   --line: #3b2b2021;
   --button-text: #fff8f0;
+  --bg-scrim: #f4ece094;
   --mascot: '//  =  o  v  o  =  )';
   --bg-art:
-    url('../images/mascots/dog.svg'),
-    radial-gradient(920px 620px at 10% -10%, #b07a452e, transparent 60%),
-    radial-gradient(760px 520px at 90% 2%, #dcc09a35, transparent 58%),
-    radial-gradient(680px 680px at 50% 116%, #8a532722, transparent 66%),
-    repeating-linear-gradient(0deg, #3b2b2012 0 1px, transparent 1px 56px);
+    radial-gradient(920px 620px at 10% -10%, #b07a451a, transparent 62%),
+    radial-gradient(760px 520px at 90% 2%, #dcc09a1a, transparent 60%),
+    linear-gradient(var(--bg-scrim), var(--bg-scrim)),
+    url('../images/backgrounds/dog-cream-coffee.webp'),
+    radial-gradient(680px 680px at 50% 116%, #8a532716, transparent 68%),
+    repeating-linear-gradient(0deg, #3b2b2009 0 1px, transparent 1px 60px);
 }
 * {
   box-sizing: border-box;
@@ -137,10 +146,11 @@ body {
 }
 /*
   Anime-inspired theme backgrounds.
-  Layer 1 is the theme mascot silhouette, then the atmosphere glows, then the
-  surface pattern. Everything stays behind the interface inside one fixed,
-  non-interactive layer, so no background detail can create scrolling or
-  overlap the content.
+  Coverage: the full-viewport background (raster 1920×1080) is the last two
+  layers (scrim + artwork, artwork cropped with cover). The glow/pattern
+  layers above add atmosphere and stay translucent so content readability
+  remains high. The artwork itself is the generated raster (webp) — the svg
+  siblings remain as source assets.
 */
 body::before {
   content: '';
@@ -149,21 +159,9 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background-image: var(--bg-art);
-  background-repeat: no-repeat;
-  background-position:
-    right -6vw top 16vh,
-    0 0,
-    0 0,
-    0 0,
-    0 0,
-    0 0;
-  background-size:
-    min(46vw, 520px),
-    auto,
-    auto,
-    auto,
-    auto,
-    auto;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position: center, center, center, center, center, center;
+  background-size: auto, auto, auto, cover, auto, auto;
 }
 /* The mascot identity of the active theme, kept faint and out of the way. */
 body::after {
@@ -421,22 +419,6 @@ dialog::backdrop {
 @media (max-width: 740px) {
   body::after {
     display: none;
-  }
-  body::before {
-    background-position:
-      right -16vw top 10vh,
-      0 0,
-      0 0,
-      0 0,
-      0 0,
-      0 0;
-    background-size:
-      min(64vw, 320px),
-      auto,
-      auto,
-      auto,
-      auto,
-      auto;
   }
 }
 @media (prefers-reduced-motion: reduce) {

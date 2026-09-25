@@ -1,4 +1,4 @@
-import { THEMES, webURL } from './model.js';
+import { THEMES, MASCOTS, webURL } from './model.js';
 export function el(tag, className = '', text) {
   const node = document.createElement(tag);
   if (className) node.className = className;
@@ -13,8 +13,17 @@ export function anchor(label, url, className = '') {
   return node;
 }
 export function applyTheme(theme, motion = true) {
-  document.documentElement.dataset.theme = Object.hasOwn(THEMES, theme) ? theme : 'neon-arcade';
+  const active = Object.hasOwn(THEMES, theme) ? theme : 'neon-arcade';
+  document.documentElement.dataset.theme = active;
   document.documentElement.dataset.motion = String(motion);
+  const mascot = MASCOTS[active];
+  for (const node of document.querySelectorAll('[data-mascot]')) {
+    const key = mascot ? mascot.key : 'cat';
+    node.src = `assets/images/stickers/${key}.png`;
+    node.alt = mascot ? `${mascot.label} mascot sticker` : 'Klightten mascot sticker';
+    // Admin and absolute-path pages resolve from docs/, so fix up the relative URL there.
+    if (location.pathname.includes('/admin/')) node.src = `../assets/images/stickers/${key}.png`;
+  }
 }
 export function storageGet(key) {
   try {
@@ -95,7 +104,11 @@ export function projectDetails(work, root) {
   const title = el('h2', '', work.title);
   title.id = 'project-dialog-title';
   root.append(title, el('span', 'status-pill', work.status));
-  if (work.role) root.append(el('p', 'muted', work.role));
+  if (work.role) {
+    const role = el('p', 'project-role');
+    role.append(el('span', 'eyebrow', 'My contribution'), document.createTextNode(` ${work.role}`));
+    root.append(role);
+  }
   root.append(el('p', 'reading-copy preserve-lines', work.description), tags(work.tech));
   const links = el('div', 'button-row');
   for (const [name, url] of [

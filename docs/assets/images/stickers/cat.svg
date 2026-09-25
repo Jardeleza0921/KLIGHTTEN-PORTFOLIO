@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Cat mascot sticker — Neon Arcade theme">
+  <defs>
+    <linearGradient id="cCat" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#ece8ff"/>
+      <stop offset="100%" stop-color="#bca8ff"/>
+    </linearGradient>
+    <linearGradient id="cInnerCat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffb3e6"/>
+      <stop offset="100%" stop-color="#ff7ad1"/>
+    </linearGradient>
+    <filter id="shadowCat" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0b0c13" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+  <rect x="6" y="6" width="188" height="188" rx="42" fill="white" opacity="0.97" filter="url(#shadowCat)"/>
+  <rect x="10" y="10" width="180" height="180" rx="38" fill="#0b0c13" opacity="0.03"/>
+  <!-- Ears -->
+  <path d="M48 62 L66 18 L88 58 Z" fill="url(#cCat)" stroke="white" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M152 62 L134 18 L112 58 Z" fill="url(#cCat)" stroke="white" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M58 58 L69 30 L82 52 Z" fill="url(#cInnerCat)" opacity="0.92"/>
+  <path d="M142 58 L131 30 L118 52 Z" fill="url(#cInnerCat)" opacity="0.92"/>
+  <!-- Head -->
+  <circle cx="100" cy="108" r="54" fill="url(#cCat)" stroke="white" stroke-width="5"/>
+  <!-- Face -->
+  <ellipse cx="82" cy="108" rx="8" ry="9" fill="#1a1030"/>
+  <ellipse cx="118" cy="108" rx="8" ry="9" fill="#1a1030"/>
+  <ellipse cx="84" cy="105" rx="3" ry="3.2" fill="white" opacity="0.95"/>
+  <ellipse cx="120" cy="105" rx="3" ry="3.2" fill="white" opacity="0.95"/>
+  <ellipse cx="83" cy="112" rx="2" ry="1.6" fill="#86dfce" opacity="0.85"/>
+  <ellipse cx="119" cy="112" rx="2" ry="1.6" fill="#86dfce" opacity="0.85"/>
+  <path d="M96 122 q4 6 8 0" fill="none" stroke="#1a1030" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M88 126 h16" fill="none" stroke="#1a1030" stroke-width="1.6" stroke-linecap="round" opacity="0.7"/>
+  <ellipse cx="100" cy="118" rx="4" ry="2.8" fill="#ff4d8a" opacity="0.95"/>
+  <!-- Blush -->
+  <ellipse cx="64" cy="122" rx="9" ry="5.5" fill="#ff7ad1" opacity="0.28"/>
+  <ellipse cx="136" cy="122" rx="9" ry="5.5" fill="#ff7ad1" opacity="0.28"/>
+  <!-- Neon collar -->
+  <path d="M62 148 q38 18 76 0" fill="none" stroke="#86dfce" stroke-width="6" stroke-linecap="round" opacity="0.95"/>
+  <circle cx="100" cy="152" r="7" fill="#bca8ff" stroke="white" stroke-width="2"/>
+  <circle cx="100" cy="152" r="2.5" fill="white"/>
+</svg>
