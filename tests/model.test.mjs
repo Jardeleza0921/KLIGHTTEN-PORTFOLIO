@@ -2,10 +2,12 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import {
+  THEMES,
   fingerprint,
   normalize,
   parseImport,
   publicData,
+  resolveTheme,
   restorePublished,
   serialize,
   webURL,
@@ -85,6 +87,39 @@ test('bundled public data validates and contains no unpublished work', async () 
   assert.equal(
     data.works.find((work) => work.id === 'klightten-portfolio').liveUrl,
     'https://jardeleza0921.github.io/KLIGHTTEN-PORTFOLIO/'
+  );
+});
+
+test('canonical theme IDs replace the retired ones without breaking saved choices', () => {
+  assert.deepEqual(Object.keys(THEMES), [
+    'neon-arcade',
+    'dark-mint',
+    'black-white',
+    'crimson-red',
+    'cream-coffee',
+  ]);
+  assert.equal(resolveTheme('red-hat'), 'crimson-red');
+  assert.equal(resolveTheme('classic-green'), 'dark-mint');
+  assert.equal(resolveTheme('crimson-red'), 'crimson-red');
+  assert.equal(resolveTheme('lavender-cat'), 'neon-arcade');
+  assert.equal(resolveTheme(''), 'neon-arcade');
+  const migrated = normalize({ ...fixture, settings: { defaultTheme: 'red-hat' } });
+  assert.equal(migrated.settings.defaultTheme, 'crimson-red');
+});
+
+test('published projects use public status wording with three flagship works', async () => {
+  const data = normalize(JSON.parse(await readFile('docs/assets/data/portfolio.json', 'utf8')));
+  const publicStatus = new Set([
+    'In Development',
+    'Prototype',
+    'Released',
+    'Academic Project',
+    'Archived',
+  ]);
+  for (const work of data.works) assert.ok(publicStatus.has(work.status), work.status);
+  assert.deepEqual(
+    data.works.filter((work) => work.featured).map((work) => work.id),
+    ['klightten-cloud', 'klightten-keyboard', 'baghaven']
   );
 });
 

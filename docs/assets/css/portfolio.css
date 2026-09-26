@@ -14,7 +14,7 @@
   display: flex;
   gap: 29px;
   align-items: center;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--muted);
 }
 .nav a[aria-current='page'] {
@@ -55,11 +55,76 @@
   border-color: var(--accent);
   transform: translateY(-1px);
 }
+/*
+  The theme selector is the five Klightten mascots rather than a list of names,
+  so a visitor picks a palette by identity. Theme names stay available on hover
+  and through each button's accessible name.
+*/
 .theme-picker {
-  max-width: 150px;
-  font-size: 0.69rem;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
   background: var(--surface);
-  padding: 8px 10px;
+}
+.theme-option {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 2px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.2s ease;
+}
+.theme-option img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  opacity: 0.5;
+  transition:
+    opacity 0.25s ease,
+    transform 0.2s ease;
+}
+.theme-option:hover img {
+  opacity: 0.85;
+}
+.theme-option[aria-pressed='true'] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.theme-option[aria-pressed='true'] img {
+  opacity: 1;
+}
+@media (hover: hover) and (min-width: 741px) {
+  .theme-option::after {
+    content: attr(data-label);
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    z-index: 2;
+    padding: 4px 9px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    background: var(--surface-2);
+    color: var(--text);
+    font-size: 0.7rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+  }
+  .theme-option:hover::after,
+  .theme-option:focus-visible::after {
+    opacity: 1;
+  }
 }
 .hero {
   display: grid;
@@ -106,7 +171,7 @@
 }
 .hero-role {
   margin: 0;
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   color: var(--dim);
   line-height: 1.6;
 }
@@ -119,7 +184,7 @@
   margin: 22px 0 0;
 }
 .hero-focus li {
-  font-size: 0.68rem;
+  font-size: 0.74rem;
   color: var(--text);
   background: var(--surface);
   border: 1px solid var(--line);
@@ -187,10 +252,16 @@
   transform: rotate(-2deg) translateY(-2px);
 }
 .focus-art {
+  display: block;
   height: 200px;
-  object-fit: cover;
   width: 100%;
   opacity: 0.8;
+}
+.focus-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .focus-content {
   padding: 26px;
@@ -213,7 +284,7 @@
   padding-top: 18px;
   border-top: 1px solid var(--line);
   color: var(--dim);
-  font-size: 0.65rem;
+  font-size: 0.72rem;
 }
 .focus-footer a {
   color: var(--accent);
@@ -227,7 +298,7 @@
 }
 .meta-strip p {
   margin: 0;
-  font-size: 0.67rem;
+  font-size: 0.74rem;
   color: var(--dim);
 }
 .meta-strip strong {
@@ -310,7 +381,7 @@
 }
 .project-visual-label {
   font-family: ui-monospace, monospace;
-  font-size: 0.56rem;
+  font-size: 0.64rem;
   color: var(--dim);
   text-transform: uppercase;
   letter-spacing: 0.07em;
@@ -331,11 +402,11 @@
   margin-bottom: 26px;
 }
 .card-meta > .mono {
-  font-size: 0.62rem;
+  font-size: 0.7rem;
   color: var(--dim);
 }
 .project-body .eyebrow {
-  font-size: 0.55rem;
+  font-size: 0.66rem;
   letter-spacing: 0.08em;
   margin: 0 0 8px;
 }
@@ -348,7 +419,7 @@
 }
 .project-summary {
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: 0.86rem;
   line-height: 1.75;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -359,14 +430,19 @@
 .project-body .tags {
   margin-top: auto;
 }
+.project-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 22px;
+}
 .project-open {
-  align-self: start;
-  margin-top: 24px;
   background: transparent;
   color: var(--accent);
   padding: 0;
   border: 0;
-  font-size: 0.76rem;
+  font-size: 0.81rem;
   transition:
     color 0.2s ease,
     transform 0.2s ease;
@@ -374,20 +450,52 @@
 .project-open:hover {
   transform: translateX(3px);
 }
+.project-link {
+  color: var(--muted);
+  font-size: 0.81rem;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+.project-link:hover {
+  color: var(--accent);
+  transform: translateX(3px);
+}
 .project-role {
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   line-height: 1.7;
-  margin: 14px 0 18px;
-  padding: 10px 12px;
+  margin: 6px 0 20px;
+  padding: 11px 13px;
   background: var(--accent-soft);
   border: 1px solid var(--line);
   border-radius: 10px;
 }
 .project-role .eyebrow {
   display: block;
-  font-size: 0.58rem;
-  margin-bottom: 4px;
+  font-size: 0.68rem;
+  margin-bottom: 5px;
+}
+.detail-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+}
+.detail-head .eyebrow {
+  flex-basis: 100%;
+  margin: 0;
+}
+.detail-head h2 {
+  margin: 8px 0 4px;
+}
+.detail-label {
+  margin: 26px 0 9px;
+}
+.detail-note {
+  align-self: center;
+  color: var(--dim);
+  font-size: 0.75rem;
 }
 .approach {
   display: grid;
@@ -412,7 +520,7 @@
 .principle > span {
   color: var(--accent);
   font-family: ui-monospace, monospace;
-  font-size: 0.68rem;
+  font-size: 0.74rem;
   padding-top: 4px;
 }
 .principle h3 {
@@ -421,7 +529,7 @@
   margin: 0 0 6px;
 }
 .principle p {
-  font-size: 0.79rem;
+  font-size: 0.84rem;
   color: var(--muted);
   margin: 0;
 }
@@ -457,7 +565,7 @@
   gap: 20px;
   padding: 28px 0;
   border-top: 1px solid var(--line);
-  font-size: 0.67rem;
+  font-size: 0.75rem;
   color: var(--dim);
 }
 .site-footer nav {
@@ -484,7 +592,7 @@
   margin: 10px 0 14px;
 }
 .filters label {
-  font-size: 0.67rem;
+  font-size: 0.74rem;
   color: var(--dim);
 }
 .filters input,
@@ -499,7 +607,7 @@
   justify-content: space-between;
   align-items: center;
   margin: 18px 0 25px;
-  font-size: 0.73rem;
+  font-size: 0.78rem;
   color: var(--dim);
 }
 .pagination {
@@ -509,7 +617,7 @@
   gap: 20px;
   padding: 30px 0;
   color: var(--dim);
-  font-size: 0.76rem;
+  font-size: 0.82rem;
 }
 .empty {
   grid-column: 1/-1;
@@ -553,7 +661,7 @@
 }
 .identity-card p {
   color: var(--muted);
-  font-size: 0.83rem;
+  font-size: 0.87rem;
 }
 .skills-grid {
   display: grid;
@@ -571,7 +679,7 @@
 .skill-block ul {
   list-style: none;
   padding: 0;
-  font-size: 0.8rem;
+  font-size: 0.86rem;
   color: var(--muted);
   line-height: 2;
 }
@@ -690,11 +798,23 @@ textarea {
   }
   .nav-tools {
     width: 100%;
+    flex-wrap: wrap;
     justify-content: space-between;
-    gap: 10px;
+    gap: 12px;
   }
   .nav {
-    gap: 25px;
+    gap: 22px;
+  }
+  .theme-picker {
+    margin-left: auto;
+  }
+  .theme-option {
+    width: 32px;
+    height: 32px;
+  }
+  .theme-option img {
+    width: 24px;
+    height: 24px;
   }
   .hero {
     grid-template-columns: 1fr;
@@ -756,9 +876,6 @@ textarea {
   }
   .section-head {
     flex-wrap: wrap;
-  }
-  .theme-picker {
-    max-width: 125px;
   }
   .hero-profile .profile-photo {
     width: 84px;

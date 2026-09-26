@@ -15,15 +15,16 @@
   --radius: 18px;
   --mascot: '//  =  ^  w  ^  =  )';
   --bg-scrim: #0b0c1394;
+  --bg-image: url('../images/backgrounds/cat-neon-arcade.webp');
   --bg-art:
     radial-gradient(940px 640px at 8% -12%, #bca8ff1f, transparent 68%),
     radial-gradient(820px 520px at 88% 2%, #86dfce18, transparent 64%),
     linear-gradient(var(--bg-scrim), var(--bg-scrim)),
-    url('../images/backgrounds/cat-neon-arcade.webp'),
+    var(--bg-image),
     radial-gradient(720px 720px at 50% 116%, #6f5bff16, transparent 68%),
     repeating-linear-gradient(0deg, #ffffff0a 0 1px, transparent 1px 52px);
 }
-[data-theme='classic-green'] {
+[data-theme='dark-mint'] {
   --bg: #0a110f;
   --surface: #121e18;
   --surface-2: #19291f;
@@ -36,11 +37,12 @@
   --button-text: #112017;
   --bg-scrim: #0a110f96;
   --mascot: '!!  =  •  v  •  =  )';
+  --bg-image: url('../images/backgrounds/bunny-dark-mint.webp');
   --bg-art:
     radial-gradient(900px 620px at 14% -10%, #a0dda520, transparent 66%),
     radial-gradient(760px 520px at 88% 2%, #b5e8c318, transparent 64%),
     linear-gradient(var(--bg-scrim), var(--bg-scrim)),
-    url('../images/backgrounds/bunny-dark-mint.webp'),
+    var(--bg-image),
     radial-gradient(720px 720px at 50% 116%, #6ec8a516, transparent 68%),
     repeating-radial-gradient(circle at 50% 120%, #ffffff08 0 1px, transparent 1px 64px);
 }
@@ -57,15 +59,16 @@
   --button-text: #121214;
   --bg-scrim: #0c0c0d99;
   --mascot: '>>  =  ^  _  ^  =  )';
+  --bg-image: url('../images/backgrounds/wolf-black-white.webp');
   --bg-art:
     radial-gradient(1000px 700px at 16% -14%, #ffffff16, transparent 62%),
     radial-gradient(720px 720px at 88% 106%, #ffffff0e, transparent 64%),
     linear-gradient(var(--bg-scrim), var(--bg-scrim)),
-    url('../images/backgrounds/wolf-black-white.webp'),
+    var(--bg-image),
     linear-gradient(112deg, #ffffff10 0 15%, transparent 44%),
     repeating-linear-gradient(0deg, #ffffff08 0 1px, transparent 1px 68px);
 }
-[data-theme='red-hat'] {
+[data-theme='crimson-red'] {
   --bg: #150e10;
   --surface: #211619;
   --surface-2: #302023;
@@ -78,11 +81,12 @@
   --button-text: #331014;
   --bg-scrim: #150e1094;
   --mascot: '//  =  >  v  <  =  )';
+  --bg-image: url('../images/backgrounds/fox-crimson-red.webp');
   --bg-art:
     radial-gradient(940px 620px at 10% -10%, #ff919924, transparent 66%),
     radial-gradient(720px 520px at 90% 4%, #f7b89e16, transparent 64%),
     linear-gradient(var(--bg-scrim), var(--bg-scrim)),
-    url('../images/backgrounds/fox-crimson-red.webp'),
+    var(--bg-image),
     radial-gradient(700px 700px at 50% 118%, #ff5f6d16, transparent 68%),
     repeating-linear-gradient(135deg, #ffffff08 0 1px, transparent 1px 48px);
 }
@@ -101,11 +105,12 @@
   --button-text: #fff8f0;
   --bg-scrim: #f4ece094;
   --mascot: '//  =  o  v  o  =  )';
+  --bg-image: url('../images/backgrounds/dog-cream-coffee.webp');
   --bg-art:
     radial-gradient(920px 620px at 10% -10%, #b07a451a, transparent 62%),
     radial-gradient(760px 520px at 90% 2%, #dcc09a1a, transparent 60%),
     linear-gradient(var(--bg-scrim), var(--bg-scrim)),
-    url('../images/backgrounds/dog-cream-coffee.webp'),
+    var(--bg-image),
     radial-gradient(680px 680px at 50% 116%, #8a532716, transparent 68%),
     repeating-linear-gradient(0deg, #3b2b2009 0 1px, transparent 1px 60px);
 }
@@ -145,12 +150,13 @@ body {
     color 0.35s ease;
 }
 /*
-  Anime-inspired theme backgrounds.
-  Coverage: the full-viewport background (raster 1920×1080) is the last two
-  layers (scrim + artwork, artwork cropped with cover). The glow/pattern
-  layers above add atmosphere and stay translucent so content readability
-  remains high. The artwork itself is the generated raster (webp) — the svg
-  siblings remain as source assets.
+  Anime-inspired theme backgrounds, one per canonical Klightten theme.
+  Coverage: the full-viewport background (raster 1920×1080) is the scrim and
+  artwork layer, cropped with cover. The glow/pattern layers above add
+  atmosphere and stay translucent so content readability remains high. Swap
+  the artwork by replacing the file named after each theme in
+  assets/images/backgrounds/ — no CSS change is needed. --bg-image holds the
+  .webp slot; ui.js retargets it when a theme is replaced with .png or .jpg.
 */
 body::before {
   content: '';
@@ -297,8 +303,8 @@ button:disabled {
 .eyebrow {
   color: var(--accent);
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-size: 0.65rem;
+  letter-spacing: 0.13em;
+  font-size: 0.72rem;
   font-weight: 600;
 }
 .muted {
@@ -316,7 +322,7 @@ button:disabled {
   gap: 7px;
 }
 .tags span {
-  font-size: 0.66rem;
+  font-size: 0.71rem;
   color: var(--muted);
   background: var(--surface-2);
   border-radius: 5px;
@@ -328,8 +334,8 @@ button:disabled {
   color: var(--mint);
   background: var(--accent-soft);
   border-radius: 6px;
-  padding: 4px 8px;
-  font-size: 0.63rem;
+  padding: 4px 9px;
+  font-size: 0.7rem;
   line-height: 1.5;
 }
 .brand {

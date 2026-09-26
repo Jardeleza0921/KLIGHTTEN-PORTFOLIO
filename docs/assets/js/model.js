@@ -3,18 +3,26 @@
 // background for each theme lives beside these variables in theme.css.
 export const THEMES = {
   'neon-arcade': 'Cat · Neon Arcade',
-  'classic-green': 'Bunny · Dark Mint',
+  'dark-mint': 'Bunny · Dark Mint',
   'black-white': 'Wolf · Black & White',
-  'red-hat': 'Fox · Crimson Red',
+  'crimson-red': 'Fox · Crimson Red',
   'cream-coffee': 'Dog · Cream Coffee',
 };
 export const MASCOTS = {
   'neon-arcade': { key: 'cat', label: 'Cat · Neon Arcade' },
-  'classic-green': { key: 'bunny', label: 'Bunny · Dark Mint' },
+  'dark-mint': { key: 'bunny', label: 'Bunny · Dark Mint' },
   'black-white': { key: 'wolf', label: 'Wolf · Black & White' },
-  'red-hat': { key: 'fox', label: 'Fox · Crimson Red' },
+  'crimson-red': { key: 'fox', label: 'Fox · Crimson Red' },
   'cream-coffee': { key: 'dog', label: 'Dog · Cream Coffee' },
 };
+export const DEFAULT_THEME = 'neon-arcade';
+// Theme IDs retired in favour of the canonical names above. Saved preferences,
+// older published content, and bookmarked values still resolve through these.
+const LEGACY_THEMES = { 'classic-green': 'dark-mint', 'red-hat': 'crimson-red' };
+export function resolveTheme(value) {
+  const id = LEGACY_THEMES[String(value ?? '')] || String(value ?? '');
+  return Object.hasOwn(THEMES, id) ? id : DEFAULT_THEME;
+}
 export const SITE_URL = 'https://jardeleza0921.github.io/KLIGHTTEN-PORTFOLIO/';
 export const clone = (value) => JSON.parse(JSON.stringify(value));
 const list = (value) => (Array.isArray(value) ? value : []);
@@ -96,9 +104,7 @@ export function normalize(input) {
       description:
         text(settings.description, 300) ||
         'A living portfolio of cloud, Linux, web, mobile, and AI projects by Jaru Iori N. Jardeleza.',
-      defaultTheme: Object.hasOwn(THEMES, settings.defaultTheme)
-        ? settings.defaultTheme
-        : 'neon-arcade',
+      defaultTheme: resolveTheme(settings.defaultTheme),
       projectsPerPage: [6, 9, 12, 24].includes(Number(settings.projectsPerPage))
         ? Number(settings.projectsPerPage)
         : 9,

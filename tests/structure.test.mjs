@@ -56,6 +56,36 @@ test('online editor starts locked, has no inline code, and uses a separate Fireb
   assert.doesNotMatch(config, /ownerUid|allowedUid|password|private_key|client_secret/i);
 });
 
+test('every canonical theme keeps its palette, background, and mascot', async () => {
+  const css = await readFile('docs/assets/css/theme.css', 'utf8');
+  for (const [theme, mascot, background] of [
+    ['neon-arcade', 'cat', 'cat-neon-arcade'],
+    ['dark-mint', 'bunny', 'bunny-dark-mint'],
+    ['black-white', 'wolf', 'wolf-black-white'],
+    ['crimson-red', 'fox', 'fox-crimson-red'],
+    ['cream-coffee', 'dog', 'dog-cream-coffee'],
+  ]) {
+    assert.match(css, new RegExp(`\\[data-theme='${theme}'\\]`));
+    assert.match(css, new RegExp(`backgrounds/${background}\\.webp`));
+    await access(`docs/assets/images/mascots/${mascot}.png`);
+    await access(`docs/assets/images/backgrounds/${background}.webp`);
+  }
+  for (const retired of ['classic-green', 'red-hat', 'lavender-cat', 'coral-fox'])
+    assert.doesNotMatch(css, new RegExp(retired));
+});
+
+test('the theme selector is the mascot picker rather than a name list', async () => {
+  for (const name of ['index.html', 'work.html', 'about.html']) {
+    const html = await readFile(path.join('docs', name), 'utf8');
+    assert.match(html, /data-theme-picker/);
+    assert.doesNotMatch(html, /<select class="theme-picker"/);
+    assert.doesNotMatch(html, /images\/stickers\//);
+  }
+  const ui = await readFile('docs/assets/js/ui.js', 'utf8');
+  assert.match(ui, /images\/mascots\//);
+  assert.doesNotMatch(ui, /images\/stickers\//);
+});
+
 test('public pages retain their existing shared assets and clean navigation', async () => {
   for (const name of ['index.html', 'work.html', 'about.html']) {
     const html = await readFile(path.join('docs', name), 'utf8');

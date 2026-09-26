@@ -40,15 +40,12 @@
             <a href="about.html">About</a>
             <a href="#contact">Contact</a>
           </nav>
-          <img
-            class="theme-mascot"
-            data-mascot
-            src="assets/images/stickers/cat.png"
-            alt="Cat · Neon Arcade mascot sticker"
-            width="36"
-            height="36"
-          />
-          <select class="theme-picker" data-theme aria-label="Color theme"></select>
+          <div
+            class="theme-picker"
+            data-theme-picker
+            role="group"
+            aria-label="Klightten color theme"
+          ></div>
         </div>
       </header>
       <p class="empty" data-load-notice role="alert" hidden></p>
@@ -64,6 +61,7 @@
             <div class="hero-profile">
               <img
                 class="profile-photo"
+                data-artwork
                 src="assets/images/profile.png"
                 alt="Portrait of Jaru Iori N. Jardeleza"
                 width="100"
@@ -75,9 +73,9 @@
                   ><span data-profile="role">BSIT Student · Aspiring Cloud Engineer</span>
                 </p>
                 <p class="hero-role">
-                  <span data-profile="school">Pateros Technological College</span> ·
+                  <span data-profile="school">Pateros Technological College</span>
+                  <span aria-hidden="true">·</span>
                   <span data-profile="stage">Third Year · First Semester</span>
-                  <span aria-hidden="true">·</span> Philippines
                 </p>
               </div>
             </div>
@@ -95,13 +93,19 @@
               <li>Local AI</li>
             </ul>
             <p class="hero-goal">
-              Now building <strong data-profile="currentFocus">KLIGHTTEN CLOUD</strong>, an
-              always-online Linux server I operate over SSH — systems thinking on real hardware,
-              leading toward a cloud engineering career.
+              Right now I operate <strong data-profile="currentFocus">KLIGHTTEN CLOUD</strong>, an
+              always-online Linux server I run over SSH — the practical path I am taking toward
+              cloud engineering work.
             </p>
             <div class="button-row">
-              <a class="button" href="#contact">Contact me ↗</a
-              ><a class="button secondary" href="work.html">View my work ↗</a
+              <a class="button" href="work.html">Explore my projects ↗</a
+              ><a
+                class="button secondary"
+                data-github
+                href="https://github.com/Jardeleza0921"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Find me on GitHub ↗</a
               ><a class="button quiet" href="about.html">About me</a>
             </div>
           </div>
@@ -109,18 +113,21 @@
             <img
               class="theme-mascot"
               data-mascot
-              src="assets/images/stickers/cat.png"
+              src="assets/images/mascots/cat.png"
               alt="Cat · Neon Arcade mascot sticker"
               width="76"
               height="76"
             />
-            <img
-              class="focus-art"
-              src="assets/images/klightten-network.png"
-              alt=""
-              width="500"
-              height="200"
-            />
+            <picture class="focus-art">
+              <source srcset="assets/images/klightten-network.webp" type="image/webp" />
+              <img
+                src="assets/images/klightten-network.png"
+                alt=""
+                width="500"
+                height="200"
+                decoding="async"
+              />
+            </picture>
             <div class="focus-content">
               <p class="eyebrow">Currently exploring</p>
               <h2 data-profile="currentFocus">KLIGHTTEN CLOUD</h2>
@@ -202,9 +209,9 @@
             <p class="eyebrow">Contact</p>
             <h2>Open to internships and junior cloud roles.</h2>
             <p class="reading-copy">
-              I’m a third-year BSIT student in the Philippines open to internships, junior cloud and
-              Linux work, and student collaborations. The fastest way to reach me is my GitHub — ask
-              there and I’ll share my résumé.
+              I’m a third-year BSIT student in the Philippines, open to internships, junior cloud and
+              Linux work, and student collaborations. GitHub is where my code and project notes live
+              — reach me there and I’ll share my résumé.
             </p>
           </div>
           <div class="button-row">
@@ -214,7 +221,7 @@
               href="https://github.com/Jardeleza0921"
               target="_blank"
               rel="noopener noreferrer"
-              >Contact me on GitHub ↗</a
+              >Find me on GitHub ↗</a
             >
             <a class="button quiet" href="work.html">See the project library</a>
           </div>
