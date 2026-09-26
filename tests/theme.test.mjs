@@ -91,7 +91,7 @@ test('the theme picker renders the five mascots in canonical order', () => {
   );
   assert.deepEqual(
     root.children.map((button) => button.children[0].src),
-    MASCOT_KEYS.map((key) => `images/mascots/${key}.png`)
+    MASCOT_KEYS.map((key) => `assets/images/mascots/${key}.png`)
   );
   assert.deepEqual(
     root.children.map((button) => button.attributes['aria-pressed']),
@@ -131,7 +131,7 @@ test('applying a theme updates the document, mascots, and picker state', () => {
   applyTheme('black-white', true);
   assert.equal(document.documentElement.dataset.theme, 'black-white');
   assert.equal(document.documentElement.dataset.motion, 'true');
-  assert.equal(mascot.src, 'images/mascots/wolf.png');
+  assert.equal(mascot.src, 'assets/images/mascots/wolf.png');
   assert.equal(mascot.alt, 'Wolf · Black & White mascot sticker');
   assert.deepEqual(
     options.map((option) => option.attributes['aria-pressed']),
@@ -168,19 +168,19 @@ test('artwork replaced with a single other format still loads', () => {
   mascot.dataset.mascot = '';
   nodes.push(mascot);
   applyTheme('dark-mint', true);
-  assert.equal(mascot.src, 'images/mascots/bunny.png');
+  assert.equal(mascot.src, 'assets/images/mascots/bunny.png');
   const missing = mascot.listeners.error[0];
   assert.equal(typeof missing, 'function');
   // The .png is gone, so the same mascot walks its remaining formats.
   missing();
-  assert.equal(mascot.src, 'images/mascots/bunny.webp');
+  assert.equal(mascot.src, 'assets/images/mascots/bunny.webp');
   missing();
-  assert.equal(mascot.src, 'images/mascots/bunny.jpg');
+  assert.equal(mascot.src, 'assets/images/mascots/bunny.jpg');
   missing();
-  assert.equal(mascot.src, 'images/mascots/bunny.jpeg');
+  assert.equal(mascot.src, 'assets/images/mascots/bunny.jpeg');
   // Nothing left to try: the last candidate stays instead of looping.
   missing();
-  assert.equal(mascot.src, 'images/mascots/bunny.jpeg');
+  assert.equal(mascot.src, 'assets/images/mascots/bunny.jpeg');
 });
 
 test('a theme background saved in another format retargets the css layer', () => {
@@ -197,7 +197,7 @@ test('a theme background saved in another format retargets the css layer', () =>
   document.documentElement.style = style;
 
   const requested = [];
-  const saved = 'images/backgrounds/wolf-black-white.png';
+  const saved = 'assets/images/backgrounds/wolf-black-white.png';
   globalThis.Image = class {
     set src(url) {
       requested.push(url);
@@ -208,10 +208,13 @@ test('a theme background saved in another format retargets the css layer', () =>
 
   applyTheme('black-white', true);
   assert.deepEqual(requested, [
-    'images/backgrounds/wolf-black-white.webp',
-    'images/backgrounds/wolf-black-white.png',
+    'assets/images/backgrounds/wolf-black-white.webp',
+    'assets/images/backgrounds/wolf-black-white.png',
   ]);
-  assert.equal(style.values['--bg-image'], 'url("images/backgrounds/wolf-black-white.png")');
+  assert.equal(
+    style.values['--bg-image'],
+    'url("assets/images/backgrounds/wolf-black-white.png")'
+  );
 
   // The .webp is the default slot, so a theme that still has it needs no override.
   requested.length = 0;
@@ -223,7 +226,7 @@ test('a theme background saved in another format retargets the css layer', () =>
     }
   };
   applyTheme('dark-mint', true);
-  assert.deepEqual(requested, ['images/backgrounds/bunny-dark-mint.webp']);
+  assert.deepEqual(requested, ['assets/images/backgrounds/bunny-dark-mint.webp']);
   assert.equal(style.values['--bg-image'], undefined);
   delete globalThis.Image;
 });
@@ -237,5 +240,5 @@ test('switching themes leaves one artwork fallback per image', () => {
   applyTheme('crimson-red', true);
   assert.equal(mascot.listeners.error.length, 1);
   mascot.listeners.error[0]();
-  assert.equal(mascot.src, 'images/mascots/fox.webp');
+  assert.equal(mascot.src, 'assets/images/mascots/fox.webp');
 });

@@ -15,6 +15,8 @@ const set = (selector, value) =>
     node.textContent = value;
   });
 const THEME_KEY = 'klightten.public.theme.v4';
+// Each page names itself in the browser tab; the rest of the title comes from content.
+const PAGE_TITLES = { home: '', work: 'Work library · ', about: 'About · ', contact: 'Contact · ' };
 
 async function start() {
   let data;
@@ -37,7 +39,7 @@ async function start() {
     return;
   }
   const { profile, settings } = data;
-  document.title = `${document.body.dataset.page === 'home' ? '' : document.body.dataset.page === 'work' ? 'Work library · ' : 'About · '}${settings.siteTitle}`;
+  document.title = `${PAGE_TITLES[document.body.dataset.page] ?? ''}${settings.siteTitle}`;
   $('meta[name="description"]')?.setAttribute('content', settings.description);
   applyTheme(storageGet(THEME_KEY) || settings.defaultTheme, settings.motion);
   const picker = $('[data-theme-picker]');
