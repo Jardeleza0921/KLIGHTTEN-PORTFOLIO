@@ -1,7 +1,7 @@
 import { THEMES, MASCOTS, resolveTheme, webURL } from './model.js';
-// The admin workspace lives one directory below the published pages, so its
-// relative asset URLs need the parent prefix.
-const assetBase = () => (location.pathname.includes('/admin/') ? '../' : '');
+// Artwork lives under the assets directory. Public pages sit at the site root
+// and the admin workspace one directory below, so each needs its own prefix.
+const assetBase = () => (location.pathname.includes('/admin/') ? '../assets/' : 'assets/');
 /*
   Artwork slots keep .webp, .png, and .jpg siblings of the same image, and a
   slot can also be replaced with a single file in any of those formats. Each

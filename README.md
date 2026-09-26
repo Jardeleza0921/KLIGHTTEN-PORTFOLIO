@@ -13,6 +13,7 @@ My personal portfolio and growing library of cloud, Linux, web, mobile, database
 - Home page with my role, technical focus, current direction, and selected projects.
 - Searchable work library with category and status filters, sorting, pagination, and project details.
 - About page with my background, skills, and learning roadmap.
+- Contact page with how to reach me, what I am open to, and what helps me answer.
 - Five mascot themes: Bunny (Dark Mint), Cat (Neon Arcade), Wolf (Black & White), Fox (Crimson Red), and Dog (Cream Coffee).
 - A theme selector built from the five mascots, one theme-matched anime background per theme, and a profile portrait.
 - Gentle entrance and scroll-reveal motion that stays behind the content and yields to reduced-motion settings.
@@ -31,6 +32,7 @@ HTML5 · CSS3 · JavaScript ES modules · JSON · Firebase · GitHub Pages
 | `docs/index.html`                 | Home and featured work                       |
 | `docs/work.html`                  | Searchable project library                   |
 | `docs/about.html`                 | Profile, skills, and learning journey        |
+| `docs/contact.html`               | Contact details and availability             |
 | `docs/404.html`                   | Missing-page response                        |
 | `docs/assets/css/`                | Themes and responsive layouts                |
 | `docs/assets/js/`                 | Data model, interface helpers, and rendering |

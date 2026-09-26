@@ -75,7 +75,7 @@ test('every canonical theme keeps its palette, background, and mascot', async ()
 });
 
 test('the theme selector is the mascot picker rather than a name list', async () => {
-  for (const name of ['index.html', 'work.html', 'about.html']) {
+  for (const name of ['index.html', 'work.html', 'about.html', 'contact.html']) {
     const html = await readFile(path.join('docs', name), 'utf8');
     assert.match(html, /data-theme-picker/);
     assert.doesNotMatch(html, /<select class="theme-picker"/);
@@ -87,10 +87,13 @@ test('the theme selector is the mascot picker rather than a name list', async ()
 });
 
 test('public pages retain their existing shared assets and clean navigation', async () => {
-  for (const name of ['index.html', 'work.html', 'about.html']) {
+  for (const name of ['index.html', 'work.html', 'about.html', 'contact.html']) {
     const html = await readFile(path.join('docs', name), 'utf8');
     assert.match(html, /assets\/css\/theme\.css/);
     assert.match(html, /assets\/js\/portfolio\.js/);
+    // Contact lives on its own page, so no public page deep-links into the home page section.
+    assert.match(html, /href="contact\.html"/);
+    assert.doesNotMatch(html, /index\.html#contact/);
     assert.doesNotMatch(html, /admin|manage\.html|netlify/i);
     assert.doesNotMatch(html, /\son\w+=|<style\b/i);
   }
