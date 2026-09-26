@@ -1,11 +1,11 @@
-import { THEMES } from './model.js';
 import { loadPublished } from './content.js';
 import {
   el,
-  anchor,
   applyTheme,
+  themePicker,
   storageGet,
   storageSet,
+  loadArtwork,
   projectCard,
   projectDetails,
 } from './ui.js';
@@ -40,17 +40,15 @@ async function start() {
   document.title = `${document.body.dataset.page === 'home' ? '' : document.body.dataset.page === 'work' ? 'Work library · ' : 'About · '}${settings.siteTitle}`;
   $('meta[name="description"]')?.setAttribute('content', settings.description);
   applyTheme(storageGet(THEME_KEY) || settings.defaultTheme, settings.motion);
-  const selector = $('select[data-theme]');
-  for (const [value, label] of Object.entries(THEMES)) {
-    const option = el('option', '', label);
-    option.value = value;
-    selector.append(option);
-  }
-  selector.value = document.documentElement.dataset.theme;
-  selector.addEventListener('change', () => {
-    applyTheme(selector.value, settings.motion);
-    storageSet(THEME_KEY, selector.value);
-  });
+  const picker = $('[data-theme-picker]');
+  if (picker)
+    themePicker(picker, document.documentElement.dataset.theme, (value) => {
+      applyTheme(value, settings.motion);
+      storageSet(THEME_KEY, value);
+    });
+  // Artwork slots keep .webp, .png, and .jpg siblings; this portrait accepts a
+  // replacement in whichever of those formats is present.
+  for (const node of document.querySelectorAll('[data-artwork]')) loadArtwork(node);
   for (const [key, value] of Object.entries(profile)) set(`[data-profile="${key}"]`, value);
   const headline = $('[data-headline]');
   if (headline) {
